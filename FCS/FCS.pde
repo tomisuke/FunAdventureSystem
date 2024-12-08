@@ -11,6 +11,7 @@ int TbuttonColor = color(240, 248, 255, 128);
 int TbuttonForegroundColor = color(220, 220, 220, 128); //frowMouse
 int TbuttonActiveColor = color(169, 169, 169, 128);//pressed
 PImage titleImage;
+PImage ruleImage;
 int titleFontSize = 70;
 int subTitle = 50;
 int scene;
@@ -24,6 +25,9 @@ void setup() {
   scene = 0;
   manageQuestion = new ManageQuestion(id, level);
   titleSetup();
+  PFont font = createFont("Meiryo", 50);
+  textFont(font);
+  ruleImage = loadImage("rule.png");
 }
 void draw() {
   //シーン切り換え
