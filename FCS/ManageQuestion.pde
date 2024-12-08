@@ -10,7 +10,7 @@ class ManageQuestion{
   void setup(){
     picture = new PImage[pictureLength];
     for(int i = 0;i < picture.length;i++){
-      picture[i] = loadImage(str(id)+".png");
+    picture[i] = loadImage(str(id)+".png");
     }
     image(picture[0],0,0);
   }
