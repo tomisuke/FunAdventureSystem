@@ -1,5 +1,6 @@
 import controlP5.*;
 ControlP5 homeButton;
+ControlP5 selectLevelButton;
 PFont font;
 PFont font40;
 
@@ -26,10 +27,14 @@ void setup() {
   size(1280, 720);
   scene = 0;
   manageQuestion = new ManageQuestion(id, level);
-  titleSetup();
   PFont font = createFont("Meiryo", 50);
   textFont(font);
   ruleImage = loadImage("rule.png");
+  //各シーンのセットアップ
+  titleSetup();
+  selectLevelSetup();
+  hideAllButton();
+  homeButton.show();
 }
 void draw() {
   //シーン切り換え
