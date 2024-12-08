@@ -1,5 +1,18 @@
-  import controlP5.*;
+import controlP5.*;
+ControlP5 homeButton;
+PFont font;
+PFont font40;
+
 //グローバル変数(グローバル変数は絶対ここに書いて)
+int TlabelColor = #696969;//T==タイトルの意
+int TchoicedColor = #d3d3d3;
+int Tchoicedfore = #d3d3d3;
+int TbuttonColor = color(240, 248, 255, 128);
+int TbuttonForegroundColor = color(220, 220, 220, 128); //frowMouse
+int TbuttonActiveColor = color(169, 169, 169, 128);//pressed
+PImage titleImage;
+int titleFontSize = 70;
+int subTitle = 50;
 int scene;
 int id = 10000;
 int level = 1;
@@ -8,8 +21,9 @@ private ManageQuestion manageQuestion;
 
 void setup() {
   size(1920, 1080);
-  scene = 3;
-  manageQuestion = new ManageQuestion(id,level);
+  scene = 0;
+  manageQuestion = new ManageQuestion(id, level);
+  titleSetup();
 }
 void draw() {
   //シーン切り換え
@@ -22,13 +36,9 @@ void draw() {
     break;
   case 2:
     sceneSelectLevel();
+    println("scene=2");
     break;
   case 3:
     manageQuestion.setup();
   }
-}
-void sceneTitle() {
-  textSize(100);
-  text("SceneTitle",100,100);
-  println("SceneTitle");
 }
