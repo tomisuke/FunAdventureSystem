@@ -7,13 +7,13 @@ PFont font40;
 int TlabelColor = #696969;//T==タイトルの意
 int TchoicedColor = #d3d3d3;
 int Tchoicedfore = #d3d3d3;
-int TbuttonColor = color(240, 248, 255, 128);
-int TbuttonForegroundColor = color(220, 220, 220, 128); //frowMouse
-int TbuttonActiveColor = color(169, 169, 169, 128);//pressed
+int TbuttonColor = color(240, 248, 255, 150);
+int TbuttonForegroundColor = color(220, 220, 220, 150); //frowMouse
+int TbuttonActiveColor = color(169, 169, 169, 150);//pressed
 PImage titleImage;
 PImage ruleImage;
 int titleFontSize = 70;
-int subTitle = 50;
+int subTitle = 40;
 int scene;
 int id = 10000;
 int level = 1;
