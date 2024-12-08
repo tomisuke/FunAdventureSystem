@@ -1,6 +1,7 @@
 import controlP5.*;
 ControlP5 homeButton;
 ControlP5 selectLevelButton;
+ControlP5 goButton;
 PFont font;
 PFont font40;
 
@@ -11,8 +12,12 @@ int Tchoicedfore = #d3d3d3;
 int TbuttonColor = color(240, 248, 255, 150);
 int TbuttonForegroundColor = color(220, 220, 220, 150); //frowMouse
 int TbuttonActiveColor = color(169, 169, 169, 150);//pressed
+int backRectW =1280;
+int backRectH = 600;
+int lines = 70;//整る用の空白　gap的なの
 PImage titleImage;
 PImage ruleImage;
+PImage selectImage;
 int titleFontSize = 70;
 int subTitle = 40;
 int scene;
@@ -22,7 +27,7 @@ int level = 1;
 private ManageQuestion manageQuestion;
 
 void setup() {
-  font = createFont("Meiryo",20);
+  font = createFont("Meiryo", 20);
   textFont(font);
   size(1280, 720);
   scene = 0;
@@ -35,6 +40,7 @@ void setup() {
   selectLevelSetup();
   hideAllButton();
   homeButton.show();
+  //goTitle();
 }
 void draw() {
   //シーン切り換え

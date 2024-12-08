@@ -1,9 +1,6 @@
 //ルール説明のシーン
 void sceneRule() {
   textAlign(CENTER, CENTER);
-  int backRectW =1280;
-  int backRectH = 600;
-  int lines = 70;
   image(ruleImage, 0, 0, width, height);
   textSize(50);
   noStroke();
