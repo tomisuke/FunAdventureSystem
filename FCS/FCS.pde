@@ -20,6 +20,8 @@ int level = 1;
 private ManageQuestion manageQuestion;
 
 void setup() {
+  font = createFont("Meiryo",20);
+  textFont(font);
   size(1920, 1080);
   scene = 0;
   manageQuestion = new ManageQuestion(id, level);
