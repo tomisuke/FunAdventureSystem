@@ -3,11 +3,14 @@ void titleSetup() {//setup内で実行してください
 
   font = createFont("Meiryo", 20);
   font40 = createFont("Meiryo", 40);
+
   //日本語フォントをインストールしてください
   //おしゃれフォントは時間があればのちのちやります
+
   titleImage = loadImage("title.png");
   homeButton.setFont(font40);
-  int titleButtonW =400, titleButtonH = 200;
+  int titleButtonW =300, titleButtonH = 100;
+
   homeButton.addButton("begin")
     .setLabel("start")
     .setPosition(0, titleButtonH/2)
