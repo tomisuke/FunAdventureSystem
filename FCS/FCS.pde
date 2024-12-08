@@ -23,7 +23,7 @@ private ManageQuestion manageQuestion;
 void setup() {
   font = createFont("Meiryo",20);
   textFont(font);
-  size(720, 720);
+  size(1280, 720);
   scene = 0;
   manageQuestion = new ManageQuestion(id, level);
   titleSetup();
