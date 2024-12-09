@@ -1,47 +1,5 @@
-ArrayList<Integer> answerId = new ArrayList<Integer>();//【重要】正誤判定に用いる。
-int count=0;
-PFont font;
-int floorSize=80;//マス目の長さ
-int centerX=400;//マップの左上を定める（Ｘ軸）
-int centerY=50;//マップの左上を定める（Ｙ軸）
-int lineWidth=1;//マップの線の太さ
-int lineWidthOutside=3;//マップの線の外枠の太さ
-int col=130;//マップのデフォルトの色
-int floor=3;//階数切り替え
-// 最大サイズ
-int MAX_SIZE = 5;
-
-int colorTime;//クリック時の色の濃さ初期値，RGBの濃さの値を担う。
-boolean floorColorFill=false;//クリック時に色がつく
-boolean stableFill=false;
-int kariX, kariY;//クリック時に色を表示する位置
-int[][][] clickCount;
-boolean resetId=false;
-ArrayList<Integer> answerId2[]=new ArrayList[5];
-
-void setup() {
-  size(1600, 900);
-  //size(1280,720);
-  font = createFont("Meiryo", 20);
+void sceneChoiceAnswer() {
   textFont(font);
-  textAlign(LEFT, TOP);
-  clickCount=new int[5][16][20];
-
-  for (int i = 0; i < 5; i++) {
-    answerId2[i] = new ArrayList<Integer>();
-  }
-}
-
-int screen=0;
-void draw() {
-  if (screen==0) {
-    floorDraw();
-  }
-  if (screen==1) {
-  }
-}
-
-void floorDraw() {
   background(255);
   if (floor==1) {
     floorMap1();
