@@ -8,6 +8,8 @@ void titleSetup() {//setup内で実行してください
   //おしゃれフォントは時間があればのちのちやります
 
   titleImage = loadImage("title.png");
+  logoImage1 = loadImage("logo1.PNG");
+  logoImage2 = loadImage("logo2.PNG");
   homeButton.setFont(font40);
   int titleButtonW =300, titleButtonH = 100;
 
@@ -34,10 +36,12 @@ void titleSetup() {//setup内で実行してください
 
 void sceneTitle() {
   image(titleImage, 0, 0, width, height);
-  textSize(titleFontSize);
-  text("Fun Adventure System", width/3, height/3);
-  textSize(subTitle);
-  text("あなたは本当に未来大を知っていますか？", width/3, height/2);
+  image(logoImage1, -120, 0, width, height);
+  image(logoImage2, -80, 0, width, height);
+  //textSize(titleFontSize);
+  //text("Fun Adventure System", width/3, height/3);
+  //textSize(subTitle);
+  //text("あなたは本当に未来大を知っていますか？", width/3, height/2);
   fill(255);
 }
 

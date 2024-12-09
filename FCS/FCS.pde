@@ -22,6 +22,8 @@ int lines = 70;//整る用の空白　gap的なの
 PImage titleImage;
 PImage ruleImage;
 PImage selectImage;
+PImage logoImage1;
+PImage logoImage2;
 int titleFontSize = 70;
 int subTitle = 40;
 int scene;
