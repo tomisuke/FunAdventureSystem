@@ -1,3 +1,5 @@
+//--Pressed関数はここにある
+//マップ表示に関するすべてが入っているr
 void sceneChoiceAnswer() {
   textFont(font);
   background(255);
@@ -13,33 +15,84 @@ void sceneChoiceAnswer() {
     floorMap5();
   }
   lines();
-
   floorMapTap(kariX, kariY);//タップした個所を視覚化する
 
+  //for (int i = 0; i < answerId.size(); i++) {
+  //  int id = answerId.get(i);
+  //  int floorId = id / 10000;
+  //  int row = (id / 100) % 100;
+  //  int col = id % 100;
+
+  //  // 色の設定
+  //  if (floorId == floor) {
+  //    fill(0, 255, 0); // 緑色
+  //    rectFunction(row, col, 1, 1);
+  //  }
+  //}
+  displayRects();
+  displayAnswerId();//{3,1,15}などと画面にうつす,すばら
+}
+
+
+void displayRects() {//複数の選択を視覚化
   for (int i = 0; i < answerId.size(); i++) {
     int id = answerId.get(i);
-    int floorId = id / 10000;
-    int row = (id / 100) % 100;
-    int col = id % 100;
 
-    // 色の設定
+    ArrayList<Integer> num = numSplit(id);
+    int floorId = num.get(0);
+    int row = num.get(1);
+    int col = num.get(2);
+
     if (floorId == floor) {
-      fill(0, 255, 0); // 緑色
-      rectFunction(row, col, 1, 1);
+      fill(0, 255, 0);
+    } else {
+      fill(200);
+    }
+    rectFunction(row/2, (9-col)/2+5, 1, 1);
+  }
+}
+
+//以下displayAnswerId関数のためのもの
+String numWrite(ArrayList<Integer> num) {
+  String result = "";
+  for (int i = 0; i < num.size(); i++) {
+    result += num.get(i);
+    if (i < num.size() - 1) {
+      result += ", ";
     }
   }
+  return result;
+}
+ArrayList<Integer> numSplit(int number) {
+  ArrayList<Integer> result = new ArrayList<Integer>();
+  result.add(number / 10000);
+  result.add((number / 100) % 100);
+  result.add(number % 100);
+  return result;
+}
+void displayAnswerId() {//sceneChoiseAnswer関数に存在
+  fill(0);
+  int baseX = 50;//ｘ座標
+  int baseY = 50;//ｙ座標（１つめ）
+  int gap = 30;
 
-  // 選択された座標の表示
-  text("選択済み座標: " + answerId.toString(), 100, 100);
+  int currentY = baseY;
+
+  for (int id : answerId) {//answerIdから要素をもらって分割する
+    ArrayList<Integer> num = numSplit(id);
+    text("{" + numWrite(num) + "}", baseX, currentY);
+    currentY += gap;
+  }
 }
 
 
 void mousePressed() {
-  floorMousePressed();//Array answerIdに適切な値を入れる関数
+  switch(scene) {
+  case 4://mapシーン
+    floorMousePressed();//Array answerIdに適切な値を入れる関数
+    break;
+  }
 }
-
-
-
 
 void keyPressed() {//階数確認用キー
   if (key=='1') {
@@ -63,10 +116,7 @@ void keyPressed() {//階数確認用キー
 }
 
 //全フロア共通，点線
-int l1=10;//線の長さ
-int l2=8;//線の間の長さ（余白）
-int l3=3;//デフォルト２　l1とl2の値によって１～３が入る。
-void lines() {
+void lines() {//sceneChoiseAnswer関数に存在
   texts();
   fill(20);
   for (int i=0; i<9; i++) {
@@ -94,6 +144,7 @@ void texts() {//方眼紙の横にあるマス目の数字
   }
   textAlign(LEFT, TOP);
 }
+
 
 //以下，お役立ち関数まとめ
 void lineFunction(int x1, int y1, int x2, int y2) {//lineを引く省略のための関数

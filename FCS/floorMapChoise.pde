@@ -1,3 +1,4 @@
+//マップ選択に関するすべてが入っている
 int returnId;//answerIdの仮置き場所
 int checkId;
 int ans1=floor, ans2, ans3;//左から階数，横列，縦列
