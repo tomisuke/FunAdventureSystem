@@ -1,7 +1,7 @@
 import controlP5.*;
 ControlP5 homeButton;
 ControlP5 selectLevelButton;
-ControlP5 goButton;
+ControlP5 ruleButton;
 PFont font;
 PFont font40;
 
@@ -14,6 +14,9 @@ int TbuttonForegroundColor = color(220, 220, 220, 150); //frowMouse
 int TbuttonActiveColor = color(169, 169, 169, 150);//pressed
 int backRectW =1280;
 int backRectH = 600;
+int defaultButtonColor = color(255, 255, 255, 230);
+int defaultForegroundColor = color(227, 232, 237, 230); //frowMouse
+int defaultActiveColor = color(186, 196, 206, 230);//pressed
 int lines = 70;//整る用の空白　gap的なの
 PImage titleImage;
 PImage ruleImage;
@@ -38,6 +41,7 @@ void setup() {
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
+  ruleSetup();
   hideAllButton();
   homeButton.show();
   //goTitle();
