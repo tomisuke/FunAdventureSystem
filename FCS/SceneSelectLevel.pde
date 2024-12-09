@@ -19,8 +19,8 @@ void selectLevelSetup() {
     .setColorForeground(SbuttonForegroundColor)
     .setColorActive(SbuttonActiveColor);
 
-  selectLevelButton.addButton("midium")
-    .setLabel("midium")
+  selectLevelButton.addButton("medium")
+    .setLabel("medium")
     .setPosition(width / 2 - easyButtonW / 2, height / 2)
     .setSize(easyButtonW, easyButtonH)
     .setColorCaptionLabel(TlabelColor)
