@@ -3,14 +3,17 @@ void titleSetup() {//setup内で実行してください
 
   font = createFont("Meiryo", 20);
   font40 = createFont("Meiryo", 40);
+
   //日本語フォントをインストールしてください
   //おしゃれフォントは時間があればのちのちやります
+
   titleImage = loadImage("title.png");
   homeButton.setFont(font40);
-  int titleButtonW =400, titleButtonH = 200;
+  int titleButtonW =300, titleButtonH = 100;
+
   homeButton.addButton("begin")
     .setLabel("start")
-    .setPosition(0, titleButtonH/2)
+    .setPosition(0, height-titleButtonH*3)
     .setSize(titleButtonW, titleButtonH)
     .setColorCaptionLabel(TlabelColor)
     .setColorBackground(TbuttonColor)
@@ -20,7 +23,7 @@ void titleSetup() {//setup内で実行してください
 
   homeButton.addButton("rule")
     .setLabel("rule")
-    .setPosition(0, titleButtonH*2)
+    .setPosition(0, height-titleButtonH*2+lines/2)
     .setSize(titleButtonW, titleButtonH)
     .setColorCaptionLabel(TlabelColor)
     .setColorBackground(TbuttonColor)
@@ -37,3 +40,15 @@ void sceneTitle() {
   text("あなたは本当に未来大を知っていますか？", width/3, height/2);
   fill(255);
 }
+
+//void goTitle() {
+//  int goButtonW = 30, goButtonH = 30;
+
+//  goButton = new ControlP5(this);
+//  goButton.setFont(font40);
+
+//  homeButton.addButton("sceneTitle")
+//    .setLabel("home")
+
+//}
+//↑タイトルに戻るボタン作ろうとしたけど挫折しました…
