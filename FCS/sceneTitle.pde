@@ -49,12 +49,6 @@ void sceneTitle() {
 
 //  homeButton.addButton("sceneTitle")
 //    .setLabel("home")
-//    .setPosition(10,height-10)
-//    .setSize(goButtonW, goButtonH)
-//    .setColorCaptionLabel(0)
-//    .setColorBackground(0)
-//    .setColorLabel(0)
-//    .setColorForeground(255)
-//    .setColorActive(227);
+
 //}
 //↑タイトルに戻るボタン作ろうとしたけど挫折しました…
