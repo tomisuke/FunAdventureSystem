@@ -2,6 +2,8 @@ import controlP5.*;
 ControlP5 homeButton;
 ControlP5 selectLevelButton;
 ControlP5 ruleButton;
+ControlP5 mapButton;
+
 PFont font;
 PFont font40;
 //グローバル変数(グローバル変数は絶対ここに書いて)
@@ -25,10 +27,10 @@ int subTitle = 40;
 int scene;
 int id = 10000;
 int level = 1;
-//mapのグローバル変数
+//mapのグローバル変数，以下かとう
 ArrayList<Integer> answerId = new ArrayList<Integer>();//【重要】正誤判定に用いる。
 int count=0;
-int floorSize=80;//マス目の長さ
+int floorSize=60;//マス目の長さ
 int centerX=400;//マップの左上を定める（Ｘ軸）
 int centerY=50;//マップの左上を定める（Ｙ軸）
 int lineWidth=1;//マップの線の太さ
@@ -37,7 +39,7 @@ int col=130;//マップのデフォルトの色
 int floor=3;//階数切り替え
 int screen=0;
 // 最大サイズ
-int MAX_SIZE = 5;
+int MAX_SIZE = 5;//問題数を指定する変数。Appタブで難易度により数値変更
 int colorTime;//クリック時の色の濃さ初期値，RGBの濃さの値を担う。
 boolean floorColorFill=false;//クリック時に色がつく
 boolean stableFill=false;
@@ -45,7 +47,10 @@ int kariX, kariY;//クリック時に色を表示する位置
 int[][][] clickCount;
 boolean resetId=false;
 ArrayList<Integer> answerId2[]=new ArrayList[5];
-//クラスの初期化
+int l1=10;//方眼紙のマス目の点線の長さ
+int l2=8;//線の間の長さ（余白）
+int l3=3;//上より，デフォルトの値は２　l1とl2の値によって１～３が入る。
+//クラスの初期化，
 private ManageQuestion manageQuestion;
 
 void setup() {
@@ -61,6 +66,7 @@ void setup() {
   titleSetup();
   selectLevelSetup();
   ruleSetup();
+  mapButton();
   hideAllButton();
   homeButton.show();
   //map系
@@ -69,6 +75,7 @@ void setup() {
     answerId2[i] = new ArrayList<Integer>();
   }
 }
+
 void draw() {
   //シーン切り換え
   switch(scene) {
@@ -87,6 +94,7 @@ void draw() {
     break;
   case 4://mapシーン
     sceneChoiceAnswer();
+
     break;
   }
 }
