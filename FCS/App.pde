@@ -14,6 +14,7 @@ void back() {
   scene = 0;
   hideAllButton();
   homeButton.show();
+  textAlign(LEFT,TOP);
 }
 void hideAllButton() {
   homeButton.hide();
