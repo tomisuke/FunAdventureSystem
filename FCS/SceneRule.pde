@@ -1,4 +1,18 @@
 //ルール説明のシーン
+void ruleSetup() {
+  ruleButton = new ControlP5(this);
+  ruleButton.setFont(font40);
+  int backButtonW = 50, backButtonH = 50;
+  ruleButton.addButton("back")
+    .setLabel("←")
+    .setPosition(50, 20)
+    .setSize(backButtonW, backButtonH)
+    .setColorCaptionLabel(TlabelColor)
+    .setColorBackground(defaultButtonColor)
+    .setColorLabel(TlabelColor)
+    .setColorForeground(defaultForegroundColor)
+    .setColorActive(defaultActiveColor);
+}
 void sceneRule() {
   textAlign(CENTER, CENTER);
   image(ruleImage, 0, 0, width, height);
