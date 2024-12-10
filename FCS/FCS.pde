@@ -3,6 +3,7 @@ ControlP5 homeButton;
 ControlP5 selectLevelButton;
 ControlP5 ruleButton;
 ControlP5 mapButton;
+ControlP5 goTitleButton;
 
 PFont font;
 PFont font40;
@@ -43,15 +44,18 @@ int screen=0;
 // 最大サイズ
 int MAX_SIZE = 5;//問題数を指定する変数。Appタブで難易度により数値変更
 int colorTime;//クリック時の色の濃さ初期値，RGBの濃さの値を担う。
+int score=0;//【重要】正解数です
 boolean floorColorFill=false;//クリック時に色がつく
 boolean stableFill=false;
 int kariX, kariY;//クリック時に色を表示する位置
 int[][][] clickCount;
 boolean resetId=false;
 ArrayList<Integer> answerId2[]=new ArrayList[5];
+boolean[] judge=new boolean[MAX_SIZE];
 int l1=10;//方眼紙のマス目の点線の長さ
 int l2=8;//線の間の長さ（余白）
 int l3=3;//上より，デフォルトの値は２　l1とl2の値によって１～３が入る。
+int answerCount=0;
 //クラスの初期化，
 private ManageQuestion manageQuestion;
 
@@ -71,6 +75,7 @@ void setup() {
   mapButton();
   hideAllButton();
   homeButton.show();
+  goTitleSetup();
   //map系
   clickCount=new int[5][16][20];
   for (int i = 0; i < 5; i++) {

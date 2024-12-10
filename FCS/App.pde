@@ -1,3 +1,5 @@
+//全国共通のhomeに戻るボタンができたら，その中に score=0; をねじ込んで，正解数をリセットする。
+
 void rule() {
   println("ルール");
   scene = 1;
@@ -14,13 +16,14 @@ void back() {
   scene = 0;
   hideAllButton();
   homeButton.show();
-  textAlign(LEFT,TOP);
+  textAlign(LEFT, TOP);
 }
 void hideAllButton() {
   homeButton.hide();
   selectLevelButton.hide();
   ruleButton.hide();
   mapButton.hide();
+  score=0;
 }
 void easy() {
   scene = 4;
@@ -40,7 +43,10 @@ void hard() {
   hideAllButton();
   mapButton.show();
 }
-
 void delete() {
   clearAllSelections();
+  judgeCancel();
+}
+void judge() {
+  judgeAnswer();
 }

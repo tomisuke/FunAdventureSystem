@@ -45,14 +45,21 @@ void sceneTitle() {
   fill(255);
 }
 
-//void goTitle() {
-//  int goButtonW = 30, goButtonH = 30;
+void goTitleSetup() {
+  int goButtonW = 30, goButtonH = 30;
 
-//  goButton = new ControlP5(this);
-//  goButton.setFont(font40);
+  goTitleButton = new ControlP5(this);
+  goTitleButton.setFont(font40);
 
-//  homeButton.addButton("sceneTitle")
-//    .setLabel("home")
-
-//}
+  ruleButton.addButton("title")
+    .setLabel("title")
+    .setPosition(50, 20)
+    .setSize(goButtonW, goButtonH)
+    .setColorCaptionLabel(TlabelColor)
+    .setColorBackground(defaultButtonColor)
+    .setColorLabel(TlabelColor)
+    .setColorForeground(defaultForegroundColor)
+    .setColorActive(defaultActiveColor);
+}
 //↑タイトルに戻るボタン作ろうとしたけど挫折しました…
+//こんな感じだろうか…？しらぬい
