@@ -1,6 +1,6 @@
 //--Pressed関数はここにある
 //マップ表示に関するすべてが入っているr
-void sceneChoiceAnswer() {
+void sceneChoiceAnswer() {//＝void draw，case４に存在
   textFont(font);
   background(255);
   if (floor==1) {
@@ -17,18 +17,7 @@ void sceneChoiceAnswer() {
   lines();
   floorMapTap(kariX, kariY);//タップした個所を視覚化する
 
-  //for (int i = 0; i < answerId.size(); i++) {
-  //  int id = answerId.get(i);
-  //  int floorId = id / 10000;
-  //  int row = (id / 100) % 100;
-  //  int col = id % 100;
 
-  //  // 色の設定
-  //  if (floorId == floor) {
-  //    fill(0, 255, 0); // 緑色
-  //    rectFunction(row, col, 1, 1);
-  //  }
-  //}
   displayRects();
   displayAnswerId();//{3,1,15}などと画面にうつす,すばら
 }
@@ -71,13 +60,11 @@ ArrayList<Integer> numSplit(int number) {
   return result;
 }
 void displayAnswerId() {//sceneChoiseAnswer関数に存在
-  fill(0);
-  int baseX = 50;//ｘ座標
+  int baseX = 50;//座標のいち，ｘ座標
   int baseY = 50;//ｙ座標（１つめ）
+  int currentY=baseY;
+  fill(0);
   int gap = 30;
-
-  int currentY = baseY;
-
   for (int id : answerId) {//answerIdから要素をもらって分割する
     ArrayList<Integer> num = numSplit(id);
     text("{" + numWrite(num) + "}", baseX, currentY);

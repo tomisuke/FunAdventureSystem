@@ -4,7 +4,7 @@ int checkId;
 int ans1=floor, ans2, ans3;//左から階数，横列，縦列
 int idX, idY;
 
-void floorMapTap(int x, int y) {
+void floorMapTap(int x, int y) {//sceneChoiceAnswerタブ・関数に存在
   noStroke();
   if (floorColorFill == true) {
     colorTime = colorTime * 99 / 100;
@@ -64,7 +64,6 @@ void floorMousePressed() {
   }
 
   if (x != -1 && y != -1) {
-    // floorMapReturnを使ってreturnIdを取得
     floorMapReturn(x, y);
 
     boolean exists = false;
@@ -76,14 +75,13 @@ void floorMousePressed() {
       }
     }
 
-    // もしIDが存在しなければ追加
     if (!exists) {
       if (answerId.size() < MAX_SIZE) {
         answerId.add(returnId);  // 最大数に達していなければ新しいIDを追加
       }
     }
 
-    println(answerId); // 確認用
+    println(answerId); //確認用
   }
 }
 
