@@ -42,7 +42,6 @@ int col=130;//マップのデフォルトの色
 int floor=3;//階数切り替え
 int screen=0;
 // 最大サイズ
-int MAX_SIZE = 5;//問題数を指定する変数。Appタブで難易度により数値変更
 int colorTime;//クリック時の色の濃さ初期値，RGBの濃さの値を担う。
 int score=0;//【重要】正解数です
 boolean floorColorFill=false;//クリック時に色がつく
@@ -51,20 +50,21 @@ int kariX, kariY;//クリック時に色を表示する位置
 int[][][] clickCount;
 boolean resetId=false;
 ArrayList<Integer> answerId2[]=new ArrayList[5];
-boolean[] judge=new boolean[MAX_SIZE];
+//boolean[] judge=new boolean[MAX_SIZE];
 int l1=10;//方眼紙のマス目の点線の長さ
 int l2=8;//線の間の長さ（余白）
 int l3=3;//上より，デフォルトの値は２　l1とl2の値によって１～３が入る。
 int answerCount=0;
 //クラスの初期化，
-private ManageQuestion manageQuestion;
+//private ManageQuestion manageQuestion;
+//ManageQuestion manageQuestion;
 
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
   textFont(font);
   size(1280, 720);
-  manageQuestion = new ManageQuestion(id, level);
+  //manageQuestion = new ManageQuestion(id, level);
   PFont font = createFont("Meiryo", 50);
   textFont(font);
   ruleImage = loadImage("rule.png");
@@ -76,6 +76,7 @@ void setup() {
   hideAllButton();
   homeButton.show();
   goTitleSetup();
+  //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
   for (int i = 0; i < 5; i++) {
@@ -88,20 +89,38 @@ void draw() {
   switch(scene) {
   case 0:
     sceneTitle();
+    //selectQuestion();
     break;
   case 1:
     sceneRule();
     break;
   case 2:
     sceneSelectLevel();
-    println("scene=2");
     break;
   case 3:
-    manageQuestion.setup();
+    if (!fileLoad) {
+      fileLoad=true;
+      loadImage();
+    }
+    if (fileLoad&&!isLoading) {
+      drawQuestion();
+    }
+    if (displayFin) {
+      if (!showLoading) {
+        showLoading=true;
+        loadingStartTime=millis();
+      } else {
+        drawLoadingAnimation();
+        if (millis() - loadingStartTime > 1000) {
+          showLoading = false;
+          fileLoad = false;
+          scene = 4;
+        }
+      }
+    }
     break;
   case 4://mapシーン
     sceneChoiceAnswer();
-
     break;
   }
 }

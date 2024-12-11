@@ -48,6 +48,5 @@ void sceneSelectLevel() {
   rect(0, (height - backRectH-10)/2, backRectW, 70);
   fill(80);
   text("難易度を選択してください", width/2, height/8);
-  println("SceneLevelSelect");
   //難易度を選択するボタン
 }
