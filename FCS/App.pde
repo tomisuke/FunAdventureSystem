@@ -5,6 +5,7 @@ void hideAllButton() {
   selectLevelButton.hide();
   ruleButton.hide();
   mapButton.hide();
+  resultButton.hide();
   score=0;
 }
 void rule() {
@@ -60,4 +61,7 @@ void delete() {
 void judge() {
   //judgeAnswer();
   ChoiceFloorJudgeSE();
+  scene = 5;
+  hideAllButton();
+  resultButton.show();
 }
