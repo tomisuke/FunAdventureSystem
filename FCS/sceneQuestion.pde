@@ -11,8 +11,8 @@ String[] imageFiles;
 int nowImage = 0;
 int interval = 500;
 int changeTime;
-int loadingStartTime; 
-boolean showLoading = false; 
+int loadingStartTime;
+boolean showLoading = false;
 
 void drawLoadingAnimation() {
   background(255);
@@ -55,6 +55,11 @@ void loadImage() {
 }
 
 void drawQuestion() {
+  if (soundFlag == true) {
+    pictureChangeSound();
+    println("test");
+    soundFlag = false;
+  }
   if (millis() - changeTime > interval) {
     nowImage++;
     changeTime = millis();
@@ -62,6 +67,9 @@ void drawQuestion() {
     if (nowImage >= MAX_SIZE) {
       nowImage = 0;
       displayFin = true;
+    } else if(scene == 3){
+      pictureChangeSound();
+      println("test2");
     }
   }
 

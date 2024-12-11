@@ -4,17 +4,20 @@ void rule() {
   scene = 1;
   hideAllButton();
   ruleButton.show();
+  pushSound();
 }
 void begin() {
   scene = 2;
   hideAllButton();
   selectLevelButton.show();
+  pushSound();
 }
 void back() {
   scene = 0;
   hideAllButton();
   homeButton.show();
   textAlign(LEFT, TOP);
+  backSound();
 }
 void hideAllButton() {
   homeButton.hide();
@@ -29,6 +32,7 @@ void easy() {
   scene = 3;
   hideAllButton();
   mapButton.show();
+  pushSound();
 }
 void medium() {
   levelOption = "middle";
@@ -36,6 +40,7 @@ void medium() {
   scene = 3;
   hideAllButton();
   mapButton.show();
+  pushSound();
 }
 void hard() {
   levelOption = "hard";
@@ -43,6 +48,7 @@ void hard() {
   scene = 3;
   hideAllButton();
   mapButton.show();
+  pushSound();
 }
 void delete() {
   clearAllSelections();
