@@ -1,9 +1,14 @@
+import gifAnimation.*;
+
+import processing.serial.*;
+
 import controlP5.*;
 ControlP5 homeButton;
 ControlP5 selectLevelButton;
 ControlP5 ruleButton;
 ControlP5 mapButton;
 ControlP5 goTitleButton;
+Gif gif;
 
 PFont font;
 PFont font40;
@@ -76,6 +81,8 @@ void setup() {
   hideAllButton();
   homeButton.show();
   goTitleSetup();
+  gif = new Gif (this, "loading.gif");
+  gif.play();
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
