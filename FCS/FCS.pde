@@ -1,6 +1,21 @@
+
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 import gifAnimation.*;
 
 import processing.serial.*;
+
 
 import controlP5.*;
 ControlP5 homeButton;
@@ -12,6 +27,9 @@ Gif gif;
 
 PFont font;
 PFont font40;
+Minim minim;
+AudioPlayer se;
+AudioPlayer bgm;
 //グローバル変数(グローバル変数は絶対ここに書いて)
 int TlabelColor = #696969;//T==タイトルの意
 int TchoicedColor = #d3d3d3;
@@ -63,13 +81,16 @@ int answerCount=0;
 //クラスの初期化，
 //private ManageQuestion manageQuestion;
 //ManageQuestion manageQuestion;
-
+//サウンド系
+boolean soundFlag = true; 
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
   textFont(font);
   size(1280, 720);
   //manageQuestion = new ManageQuestion(id, level);
+  minim = new Minim(this);
+  titleSound();
   PFont font = createFont("Meiryo", 50);
   textFont(font);
   ruleImage = loadImage("rule.png");
@@ -118,10 +139,12 @@ void draw() {
         loadingStartTime=millis();
       } else {
         drawLoadingAnimation();
+        isLoading = true;
         if (millis() - loadingStartTime > 1000) {
           showLoading = false;
           fileLoad = false;
           scene = 4;
+          isLoading = false;
         }
       }
     }
