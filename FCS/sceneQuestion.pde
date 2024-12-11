@@ -67,7 +67,7 @@ void drawQuestion() {
     if (nowImage >= MAX_SIZE) {
       nowImage = 0;
       displayFin = true;
-    } else if(scene == 3){
+    } else if (isLoading == false) {
       pictureChangeSound();
       println("test2");
     }
