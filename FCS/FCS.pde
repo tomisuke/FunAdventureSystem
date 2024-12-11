@@ -82,7 +82,7 @@ int answerCount=0;
 //private ManageQuestion manageQuestion;
 //ManageQuestion manageQuestion;
 //サウンド系
-boolean soundFlag = true; 
+boolean soundFlag = true;
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -90,7 +90,7 @@ void setup() {
   size(1280, 720);
   //manageQuestion = new ManageQuestion(id, level);
   minim = new Minim(this);
-  titleSound();
+  titleBGM();
   PFont font = createFont("Meiryo", 50);
   textFont(font);
   ruleImage = loadImage("rule.png");
@@ -101,7 +101,6 @@ void setup() {
   mapButton();
   hideAllButton();
   homeButton.show();
-  goTitleSetup();
   gif = new Gif (this, "loading.gif");
   gif.play();
   //setupQuestion();
@@ -144,6 +143,8 @@ void draw() {
           showLoading = false;
           fileLoad = false;
           scene = 4;
+          bgm.close();
+          choiceFloorBGM();
           isLoading = false;
         }
       }

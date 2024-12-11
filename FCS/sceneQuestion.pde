@@ -57,7 +57,7 @@ void loadImage() {
 
 void drawQuestion() {
   if (soundFlag == true) {
-    pictureChangeSound();
+    pictureChangeSE();
     println("test");
     soundFlag = false;
   }
@@ -69,7 +69,7 @@ void drawQuestion() {
       nowImage = 0;
       displayFin = true;
     } else if (isLoading == false) {
-      pictureChangeSound();
+      pictureChangeSE();
       println("test2");
     }
   }

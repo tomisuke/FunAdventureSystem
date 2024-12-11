@@ -44,22 +44,3 @@ void sceneTitle() {
   //text("あなたは本当に未来大を知っていますか？", width/3, height/2);
   fill(255);
 }
-
-void goTitleSetup() {
-  int goButtonW = 30, goButtonH = 30;
-
-  goTitleButton = new ControlP5(this);
-  goTitleButton.setFont(font40);
-
-  ruleButton.addButton("title")
-    .setLabel("title")
-    .setPosition(50, 20)
-    .setSize(goButtonW, goButtonH)
-    .setColorCaptionLabel(TlabelColor)
-    .setColorBackground(defaultButtonColor)
-    .setColorLabel(TlabelColor)
-    .setColorForeground(defaultForegroundColor)
-    .setColorActive(defaultActiveColor);
-}
-//↑タイトルに戻るボタン作ろうとしたけど挫折しました…
-//こんな感じだろうか…？しらぬい
