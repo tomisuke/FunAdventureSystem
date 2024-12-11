@@ -9,7 +9,7 @@ boolean fileLoad=false;
 boolean isLoading=false;
 String[] imageFiles;
 int nowImage = 0;
-int interval = 500;
+int interval = 3000;
 int changeTime;
 int loadingStartTime;
 boolean showLoading = false;
@@ -57,7 +57,7 @@ void loadImage() {
 
 void drawQuestion() {
   if (soundFlag == true) {
-    pictureChangeSound();
+    pictureChangeSE();
     println("test");
     soundFlag = false;
   }
@@ -68,8 +68,8 @@ void drawQuestion() {
     if (nowImage >= MAX_SIZE) {
       nowImage = 0;
       displayFin = true;
-    } else if(scene == 3){
-      pictureChangeSound();
+    } else if (isLoading == false) {
+      pictureChangeSE();
       println("test2");
     }
   }
