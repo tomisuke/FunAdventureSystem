@@ -17,7 +17,8 @@ boolean showLoading = false;
 void drawLoadingAnimation() {
   background(255);
   fill(0);
-  text("Now Loading", width / 2, height / 2 - 50);
+  //text("Now Loading", width / 2, height / 2 - 50);
+  image(gif,512,232);
 
   pushMatrix();
   popMatrix();
