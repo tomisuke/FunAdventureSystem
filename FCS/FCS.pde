@@ -98,7 +98,7 @@ void setup() {
   titleSetup();
   selectLevelSetup();
   ruleSetup();
-  mapButton();
+  mapChoiceSetup();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
@@ -145,6 +145,7 @@ void draw() {
           scene = 4;
           bgm.close();
           choiceFloorBGM();
+          mapButton.show();
           isLoading = false;
         }
       }
