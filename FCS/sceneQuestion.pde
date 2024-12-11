@@ -1,14 +1,71 @@
-//グローバル変数scoreを置きました。正解数のことです
-int[] easyID = {10317, 10319, 10519, 10919, 11117, 11119, 11319, 11519, 30107, 30311, 30707, 30907, 31107, 31113, 31307, 31309};
-void setupQuestion() {
+import java.io.File;
+import java.util.ArrayList;
+
+PImage[] questionImage;
+int MAX_SIZE;//問題数を指定する変数。Appタブで難易度により数値変更
+String levelOption = "";
+boolean displayFin = false;
+boolean fileLoad=false;
+boolean isLoading=false;
+String[] imageFiles;
+int nowImage = 0;
+int interval = 500;
+int changeTime;
+int loadingStartTime; 
+boolean showLoading = false; 
+
+void drawLoadingAnimation() {
+  background(255);
+  fill(0);
+  text("Now Loading", width / 2, height / 2 - 50);
+
+  pushMatrix();
+  popMatrix();
 }
-void sceneQuestion() {
+
+void loadImage() {
+  isLoading=true;
+  displayFin=false;
+
+  File folder = new File(dataPath(levelOption));
+  imageFiles = folder.list((dir, name) -> name.toLowerCase().endsWith(".jpg"));
+  if (imageFiles == null || imageFiles.length == 0) {
+    println("フォルダに画像がないよう: " + levelOption);
+    isLoading = false;
+    return;
+  }
+
+  ArrayList<String> selectedFiles = new ArrayList<String>();
+  for (String file : imageFiles) {
+    selectedFiles.add(file);
+  }
+
+  questionImage = new PImage[MAX_SIZE];
+  for (int i = 0; i < MAX_SIZE; i++) {
+    int randomIndex = int(random(selectedFiles.size()));
+    String fileName = selectedFiles.get(randomIndex);
+    selectedFiles.remove(randomIndex);
+
+    questionImage[i] = loadImage(levelOption + "/" + fileName);
+    println("よみこみ: " + fileName);
+  }
+
+  isLoading = false;
+  changeTime=millis();
 }
-String getPictureName(int level) {
-  switch(level) {
-  case 1:
-    return str(easyID[int(random(easyID.length))])+".png";
-  default:
-    return "null";
+
+void drawQuestion() {
+  if (millis() - changeTime > interval) {
+    nowImage++;
+    changeTime = millis();
+
+    if (nowImage >= MAX_SIZE) {
+      nowImage = 0;
+      displayFin = true;
+    }
+  }
+
+  if (nowImage < MAX_SIZE && questionImage[nowImage] != null) {
+    image(questionImage[nowImage], 0, 0, width, height);
   }
 }

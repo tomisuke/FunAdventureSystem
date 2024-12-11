@@ -95,7 +95,6 @@ void keyPressed() {//階数確認用キー
   }
   if (key=='0'&&answerId.size()==MAX_SIZE) {//正誤を判定するボタンと同義
     screen=1;
-    println("screen=1");
   }
   if (key == 'c') { // 'c'キーで全選択削除
     clearAllSelections();
