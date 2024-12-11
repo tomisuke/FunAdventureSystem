@@ -57,7 +57,7 @@ void loadImage() {
 
 void drawQuestion() {
   if (soundFlag == true) {
-    pictureChangeSound();
+    pictureChangeSE();
     println("test");
     soundFlag = false;
   }
@@ -68,8 +68,8 @@ void drawQuestion() {
     if (nowImage >= MAX_SIZE) {
       nowImage = 0;
       displayFin = true;
-    } else if(scene == 3){
-      pictureChangeSound();
+    } else if (isLoading == false) {
+      pictureChangeSE();
       println("test2");
     }
   }

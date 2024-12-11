@@ -71,6 +71,7 @@ void floorMousePressed() {
       if (answerId.get(i) == returnId) {
         answerId.remove(i);  // 同じ値が存在した場合削除
         exists = true;
+        choiceFloorCancelSE();
         break;
       }
     }
@@ -78,6 +79,9 @@ void floorMousePressed() {
     if (!exists) {
       if (answerId.size() < MAX_SIZE) {
         answerId.add(returnId);  // 最大数に達していなければ新しいIDを追加
+        choiceFloorSE();
+      }else{
+        ChoiceFloorOverSE();
       }
     }
 

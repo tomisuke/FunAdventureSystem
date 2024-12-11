@@ -4,20 +4,22 @@ void rule() {
   scene = 1;
   hideAllButton();
   ruleButton.show();
-  pushSound();
+  pushSE();
 }
 void begin() {
   scene = 2;
   hideAllButton();
   selectLevelButton.show();
-  pushSound();
+  bgm.close();
+  selectLevelBGM();
+  pushSE();
 }
 void back() {
   scene = 0;
   hideAllButton();
   homeButton.show();
   textAlign(LEFT, TOP);
-  backSound();
+  backSE();
 }
 void hideAllButton() {
   homeButton.hide();
@@ -32,7 +34,8 @@ void easy() {
   scene = 3;
   hideAllButton();
   mapButton.show();
-  pushSound();
+  pushSE();
+  bgm.close();
 }
 void medium() {
   levelOption = "middle";
@@ -40,7 +43,8 @@ void medium() {
   scene = 3;
   hideAllButton();
   mapButton.show();
-  pushSound();
+  pushSE();
+  bgm.close();
 }
 void hard() {
   levelOption = "hard";
@@ -48,12 +52,15 @@ void hard() {
   scene = 3;
   hideAllButton();
   mapButton.show();
-  pushSound();
+  pushSE();
+  bgm.close();
 }
 void delete() {
   clearAllSelections();
+  ChoiceFloorDeleteSE();
   judgeCancel();
 }
 void judge() {
   //judgeAnswer();
+  ChoiceFloorJudgeSE();
 }
