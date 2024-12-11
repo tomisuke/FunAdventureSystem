@@ -1,5 +1,12 @@
 //全国共通のhomeに戻るボタンができたら，その中に score=0; をねじ込んで，正解数をリセットする。
 
+void hideAllButton() {
+  homeButton.hide();
+  selectLevelButton.hide();
+  ruleButton.hide();
+  mapButton.hide();
+  score=0;
+}
 void rule() {
   scene = 1;
   hideAllButton();
@@ -21,19 +28,11 @@ void back() {
   textAlign(LEFT, TOP);
   backSE();
 }
-void hideAllButton() {
-  homeButton.hide();
-  selectLevelButton.hide();
-  ruleButton.hide();
-  mapButton.hide();
-  score=0;
-}
 void easy() {
   levelOption = "easy";
   MAX_SIZE = 3;
   scene = 3;
   hideAllButton();
-  mapButton.show();
   pushSE();
   bgm.close();
 }
@@ -42,7 +41,6 @@ void medium() {
   MAX_SIZE = 5;
   scene = 3;
   hideAllButton();
-  mapButton.show();
   pushSE();
   bgm.close();
 }
@@ -51,7 +49,6 @@ void hard() {
   MAX_SIZE = 7;
   scene = 3;
   hideAllButton();
-  mapButton.show();
   pushSE();
   bgm.close();
 }

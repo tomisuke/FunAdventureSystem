@@ -9,7 +9,7 @@ boolean fileLoad=false;
 boolean isLoading=false;
 String[] imageFiles;
 int nowImage = 0;
-int interval = 500;
+int interval = 3000;
 int changeTime;
 int loadingStartTime;
 boolean showLoading = false;
