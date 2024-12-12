@@ -61,6 +61,7 @@ void loadImage() {
 }
 
 void drawQuestion() {
+  background(255);
   if (soundFlag == true) {
     pictureChangeSE();
     println("test");
@@ -80,6 +81,6 @@ void drawQuestion() {
   }
 
   if (nowImage < MAX_SIZE && questionImage[nowImage] != null) {
-    image(questionImage[nowImage], 0, 0, width, height);
+    image(questionImage[nowImage], (width-960)/2, 0, 960, height);
   }
 }

@@ -6,6 +6,9 @@ void hideAllButton() {
   ruleButton.hide();
   mapButton.hide();
   resultButton.hide();
+  showAnswerButton1.hide();
+  showAnswerButton2.hide();
+  showAnswerButton3.hide();
   score=0;
 }
 void rule() {
@@ -68,7 +71,19 @@ void delete() {
 void judge() {
   judgeAnswer();
   ChoiceFloorJudgeSE();
-  scene = 6;
+  scene = 5;
+  hideAllButton();
+  showAnswerButton1.show();
+  showAnswerButton2.show();
+}
+void next() {
+  resultPictureNum++;
+}
+void backPicture(){
+  resultPictureNum--;
+}
+void result() {
   hideAllButton();
   resultButton.show();
+  scene = 6;
 }

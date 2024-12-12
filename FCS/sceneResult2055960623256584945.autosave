@@ -16,18 +16,18 @@ void sceneResult() {
   background(255);
   textSize(100);
   textAlign(CENTER, CENTER);
-  fill(0);
-  text("Result", width/2, 50);
+  text("Result", width/2, 20);
   textSize(50);
-  for (int i = 1; i<=MAX_SIZE; i++) {
-    fill(0);
-    text("問題"+i, width/2-200, 100+80*i);
-    if (judge[i-1]) {
-      fill(255,0,0);
-      text("正解!", width/2+200, 100+80*i);
-    } else {
-      fill(0,0,255);
-      text("不正解!", width/2+200, 100+80*i);
+
+  loadImage(levelOption + "/" + fileName[resultPictureNum]);
+  if (resultPictureNum <  MAX_SIZE) {
+    for (int i = 1; i<=MAX_SIZE; i++) {
+      text("問題"+i, width/2-200, 100+80*i);
+      if (judge[i-1]) {
+        text("正解!", width/2+200, 100+80*i);
+      } else {
+        text("不正解!", width/2+200, 100+80*i);
+      }
     }
   }
 }
