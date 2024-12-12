@@ -23,6 +23,9 @@ ControlP5 ruleButton;
 ControlP5 mapButton;
 ControlP5 goTitleButton;
 ControlP5 resultButton;
+ControlP5 showAnswerButton1;
+ControlP5 showAnswerButton2;
+ControlP5 showAnswerButton3;
 Gif gif;
 
 PFont font;
@@ -102,6 +105,7 @@ void setup() {
   ruleSetup();
   mapChoiceSetup();
   resultSetup();
+  showAnswerSetup();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
@@ -158,6 +162,7 @@ void draw() {
     sceneChoiceAnswer();
     break;
   case 5:
+    sceneShowAnswer();
     break;
   case 6:
     sceneResult();
