@@ -18,8 +18,8 @@ void begin() {
   scene = 2;
   hideAllButton();
   selectLevelButton.show();
-  bgm.close();
-  selectLevelBGM();
+  //bgm.close();
+  //selectLevelBGM();
   pushSE();
 }
 void back() {
@@ -32,6 +32,8 @@ void back() {
 void easy() {
   levelOption = "easy";
   MAX_SIZE = 3;
+  judge = new boolean[MAX_SIZE];
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
   scene = 3;
   hideAllButton();
   pushSE();
@@ -40,6 +42,8 @@ void easy() {
 void medium() {
   levelOption = "middle";
   MAX_SIZE = 5;
+  judge = new boolean[MAX_SIZE];
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
   scene = 3;
   hideAllButton();
   pushSE();
@@ -48,6 +52,8 @@ void medium() {
 void hard() {
   levelOption = "hard";
   MAX_SIZE = 7;
+  judge = new boolean[MAX_SIZE];
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
   scene = 3;
   hideAllButton();
   pushSE();
@@ -59,7 +65,7 @@ void delete() {
   judgeCancel();
 }
 void judge() {
-  //judgeAnswer();
+  judgeAnswer();
   ChoiceFloorJudgeSE();
   scene = 5;
   hideAllButton();

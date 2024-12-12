@@ -1,4 +1,3 @@
-
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
@@ -55,7 +54,7 @@ int scene;
 int id = 10000;
 int level = 1;
 //mapのグローバル変数，以下かとう
-ArrayList<Integer> answerId = new ArrayList<Integer>();//【重要】正誤判定に用いる。
+ArrayList<Integer> answerId = new ArrayList<Integer>();//【重要】正誤判定に用いる。ユーザーが選択した場所を格納
 int count=0;
 int floorSize=60;//マス目の長さ
 int centerX=400;//マップの左上を定める（Ｘ軸）
@@ -74,7 +73,7 @@ int kariX, kariY;//クリック時に色を表示する位置
 int[][][] clickCount;
 boolean resetId=false;
 ArrayList<Integer> answerId2[]=new ArrayList[5];
-//boolean[] judge=new boolean[MAX_SIZE];
+boolean[] judge;
 int l1=10;//方眼紙のマス目の点線の長さ
 int l2=8;//線の間の長さ（余白）
 int l3=3;//上より，デフォルトの値は２　l1とl2の値によって１～３が入る。
