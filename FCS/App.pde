@@ -74,12 +74,11 @@ void judge() {
   scene = 5;
   hideAllButton();
   showAnswerButton1.show();
-  showAnswerButton2.show();
 }
 void next() {
   resultPictureNum++;
 }
-void backPicture(){
+void backPicture() {
   resultPictureNum--;
 }
 void result() {

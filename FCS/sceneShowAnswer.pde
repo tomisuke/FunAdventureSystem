@@ -44,9 +44,16 @@ void sceneShowAnswer() {
     fill(0, 0, 255);
     text("不正解!", 100, height-200);
   }
-  if (resultPictureNum == MAX_SIZE-1) {
+  if (resultPictureNum == 0) {
+    showAnswerButton2.hide();
+  } else if (resultPictureNum == 1) {
+    showAnswerButton2.show();
+  } else if (resultPictureNum == MAX_SIZE-1) {
     hideAllButton();
     showAnswerButton2.show();
     showAnswerButton3.show();
+  } else if (resultPictureNum == MAX_SIZE-2) {
+    showAnswerButton1.show();
+    showAnswerButton3.hide();
   }
 }
