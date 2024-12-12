@@ -18,6 +18,9 @@ void sceneResult() {
   textAlign(CENTER, CENTER);
   text("Result", width/2, 20);
   textSize(50);
+  switch(resultPictureNum){
+    
+  }
   for (int i = 1; i<=MAX_SIZE; i++) {
     text("問題"+i, width/2-200, 100+80*i);
     if (judge[i-1]) {

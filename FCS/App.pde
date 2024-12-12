@@ -24,6 +24,7 @@ void begin() {
 }
 void back() {
   scene = 0;
+  clearAllSelections();
   hideAllButton();
   homeButton.show();
   textAlign(LEFT, TOP);
@@ -67,7 +68,7 @@ void delete() {
 void judge() {
   judgeAnswer();
   ChoiceFloorJudgeSE();
-  scene = 5;
+  scene = 6;
   hideAllButton();
   resultButton.show();
 }
