@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 
-PImage[] questionImage;
+PImage[] questionImage;  //選ばれた画像を格納する配列
 int MAX_SIZE;//問題数を指定する変数。Appタブで難易度により数値変更
 String levelOption = "";
 boolean displayFin = false;
@@ -13,12 +13,18 @@ int interval = 3000;
 int changeTime;
 int loadingStartTime;
 boolean showLoading = false;
+String fileName[];
+
+int toFileNameInt(String fileName) {
+  String onlyID = fileName.replaceAll("[^0-9]", "");
+  return int(onlyID);
+}
 
 void drawLoadingAnimation() {
   background(255);
   fill(0);
   //text("Now Loading", width / 2, height / 2 - 50);
-  image(gif,512,232);
+  image(gif, 512, 232);
 
   pushMatrix();
   popMatrix();
@@ -40,15 +46,14 @@ void loadImage() {
   for (String file : imageFiles) {
     selectedFiles.add(file);
   }
-
   questionImage = new PImage[MAX_SIZE];
   for (int i = 0; i < MAX_SIZE; i++) {
-    int randomIndex = int(random(selectedFiles.size()));
-    String fileName = selectedFiles.get(randomIndex);
-    selectedFiles.remove(randomIndex);
+    int randomIndex = int(random(selectedFiles.size()));//selectedFiles(arrayList)の要素数までのランダムな数字
+    fileName[i] = selectedFiles.get(randomIndex);
+    selectedFiles.remove(randomIndex);//選ばれたファイルをselectedFIles(arrayList)から削除
 
-    questionImage[i] = loadImage(levelOption + "/" + fileName);
-    println("よみこみ: " + fileName);
+    questionImage[i] = loadImage(levelOption + "/" + fileName[i]);
+    println("よみこみ: " + fileName[i]);
   }
 
   isLoading = false;

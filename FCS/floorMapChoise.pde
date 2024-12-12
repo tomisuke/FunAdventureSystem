@@ -80,7 +80,7 @@ void floorMousePressed() {
       if (answerId.size() < MAX_SIZE) {
         answerId.add(returnId);  // 最大数に達していなければ新しいIDを追加
         choiceFloorSE();
-      }else{
+      } else {
         ChoiceFloorOverSE();
       }
     }
