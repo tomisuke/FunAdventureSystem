@@ -146,9 +146,11 @@ void draw() {
       } else {
         drawLoadingAnimation();
         isLoading = true;
-        if (millis() - loadingStartTime > 1000) {
+        soundFlag = true;
+        if (millis() - loadingStartTime > 500) {
           showLoading = false;
           fileLoad = false;
+          resultPictureNum = 0;
           scene = 4;
           bgm.close();
           choiceFloorBGM();
