@@ -83,6 +83,8 @@ int answerCount=0;
 //ManageQuestion manageQuestion;
 //サウンド系
 boolean soundFlag = true;
+//リザルト系
+int resultPictureNum = 0;
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -156,6 +158,8 @@ void draw() {
     sceneChoiceAnswer();
     break;
   case 5:
+    break;
+  case 6:
     sceneResult();
     break;
   }
