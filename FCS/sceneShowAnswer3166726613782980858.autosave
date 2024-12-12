@@ -46,7 +46,6 @@ void sceneShowAnswer() {
   }
   if (resultPictureNum == MAX_SIZE-1) {
     hideAllButton();
-    showAnswerButton2.show();
     showAnswerButton3.show();
   }
 }
