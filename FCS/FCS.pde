@@ -15,6 +15,7 @@ import gifAnimation.*;
 
 import processing.serial.*;
 
+import processing.net.*;//serverと通信するためライブラリ
 
 import controlP5.*;
 ControlP5 homeButton;
@@ -83,6 +84,10 @@ int answerCount=0;
 //ManageQuestion manageQuestion;
 //サウンド系
 boolean soundFlag = true;
+//サーバーと通信するための変数
+String serverAddress = "127.0.0.1";//サーバーのアドレス　今回はlocalhost
+int serverPort = 5000;//サーバーのポート番号
+Client client;//クライアントオブジェクト　これでプロセシングがクライアントになる
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -110,6 +115,8 @@ void setup() {
   for (int i = 0; i < 5; i++) {
     answerId2[i] = new ArrayList<Integer>();
   }
+  //サーバーと接続する　初回接続
+  connectToServer();
 }
 
 void draw() {
