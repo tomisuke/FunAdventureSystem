@@ -59,7 +59,7 @@ void delete() {
   judgeCancel();
 }
 void judge() {
-  //judgeAnswer();
+  judgeAnswer();
   ChoiceFloorJudgeSE();
   scene = 5;
   hideAllButton();
