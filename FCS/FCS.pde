@@ -28,6 +28,7 @@ ControlP5 showAnswerButton1;
 ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
 Gif gif;
+Gif titleGif;
 
 PFont font;
 PFont font40;
@@ -113,7 +114,9 @@ void setup() {
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
+  titleGif= new Gif (this, "titleA.gif");
   gif.play();
+  titleGif.play();
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];

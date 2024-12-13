@@ -7,7 +7,6 @@ void titleSetup() {//setup内で実行してください
   //日本語フォントをインストールしてください
   //おしゃれフォントは時間があればのちのちやります
 
-  titleImage = loadImage("title.png");
   logoImage1 = loadImage("logo1.PNG");
   logoImage2 = loadImage("logo2.PNG");
   homeButton.setFont(font40);
@@ -35,9 +34,9 @@ void titleSetup() {//setup内で実行してください
 }
 
 void sceneTitle() {
-  image(titleImage, 0, 0, width, height);
-  image(logoImage1, -120, 0, width, height);
-  image(logoImage2, -80, 0, width, height);
+  image(titleGif, 0, 0, width, height);
+  //image(logoImage1, -120, 0, width, height);
+  //image(logoImage2, -80, 0, width, height);
   //textSize(titleFontSize);
   //text("Fun Adventure System", width/3, height/3);
   //textSize(subTitle);
