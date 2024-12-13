@@ -54,7 +54,7 @@ def run_socket():
             print(data.decode(FORMAT))
 
             pic1 = "FAS/FunImage1/" + data.decode(FORMAT)
-            files = glob.glob("./FAS/FunImage/*.jpeg")
+            files = glob.glob("./FAS/FunImage/*.jpeg")#funimage下のjpegファイルを探して、pic2に入れる
             
             pic2 = None  # 初期化
             for file in files:
@@ -64,7 +64,7 @@ def run_socket():
             # pic2が空の場合は処理をスキップする
             if not pic2:
                 print("No valid file found for comparison, skipping...")
-                client.sendall("画像がありません".encode(FORMAT))
+                #client.sendall("画像がありません".encode(FORMAT))
                 client.close()
                 continue
 
@@ -76,12 +76,12 @@ def run_socket():
                 image1 = cv2.resize(image1,(image2.shape[1],image2.shape[0]))#大きさが違うときは、image1側をリサイズ
             score, diff = ssim(image1, image2, full=True)
             print(f"SSIM Score: {score}")
-
+            #ssimが0.5以上で正解にする
             if score >= 0.5:
-                client.sendall("正解".encode(FORMAT))
+                client.sendall("正解！".encode(FORMAT))
             else:
-                client.sendall("不正解".encode(FORMAT))
-
+                client.sendall("不正解...".encode(FORMAT))
+            #funimageファイルの中身を空にする
             shutil.rmtree('FAS/FunImage')
             os.mkdir('FAS/FunImage')
             client.close()
