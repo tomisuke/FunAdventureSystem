@@ -88,7 +88,6 @@ int answerCount=0;
 boolean soundFlag = true;
 //リザルト系
 int resultPictureNum = 0;
-String answerComment = "";
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -146,12 +145,13 @@ void draw() {
         loadingStartTime=millis();
       } else {
         drawLoadingAnimation();
+        //写真の表示で使った変数のリセット
         isLoading = true;
         soundFlag = true;
+        resultPictureNum = 0;
         if (millis() - loadingStartTime > 500) {
           showLoading = false;
           fileLoad = false;
-          resultPictureNum = 0;
           scene = 4;
           bgm.close();
           choiceFloorBGM();

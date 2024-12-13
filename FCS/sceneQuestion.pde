@@ -15,11 +15,6 @@ int loadingStartTime;
 boolean showLoading = false;
 String fileName[];
 
-int toFileNameInt(String fileName) {
-  String onlyID = fileName.replaceAll("[^0-9]", "");
-  return int(onlyID);
-}
-
 void drawLoadingAnimation() {
   background(255);
   fill(0);
