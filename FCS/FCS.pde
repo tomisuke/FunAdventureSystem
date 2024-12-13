@@ -15,6 +15,7 @@ import gifAnimation.*;
 
 import processing.serial.*;
 
+import processing.net.*;//serverと通信するためライブラリ
 
 import controlP5.*;
 ControlP5 homeButton;
@@ -27,6 +28,7 @@ ControlP5 showAnswerButton1;
 ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
 Gif gif;
+Gif titleGif;
 
 PFont font;
 PFont font40;
@@ -86,7 +88,10 @@ int answerCount=0;
 //ManageQuestion manageQuestion;
 //サウンド系
 boolean soundFlag = true;
-//リザルト系
+//サーバーと通信するための変数
+String serverAddress = "127.0.0.1";//サーバーのアドレス　今回はlocalhost
+int serverPort = 5000;//サーバーのポート番号
+Client client;//クライアントオブジェクト　これでプロセシングがクライアントになる
 int resultPictureNum = 0;
 String answerComment = "";
 void setup() {
@@ -110,13 +115,17 @@ void setup() {
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
+  titleGif= new Gif (this, "titleA.gif");
   gif.play();
+  titleGif.play();
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
   for (int i = 0; i < 5; i++) {
     answerId2[i] = new ArrayList<Integer>();
   }
+  //サーバーと接続する　初回接続
+  connectToServer();
 }
 
 void draw() {

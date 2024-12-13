@@ -9,4 +9,6 @@ void clientEvent(Client client) {//サーバーから何か受け取ったとき
     String receiveS = client.readString();//serverから受け取る文字列
     //receiveSには、正解　もしくは　不正解　のどちらかの文字列が入っている
     
+
 }
+
