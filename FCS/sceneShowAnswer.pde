@@ -98,20 +98,76 @@ String takeAnswerComment(String fileName) {
       return "3階、側面の体育館入り口";
     case 31107:
       return "3階、モール奥の階段にある植物";
+    case 31113:
+      return "3階、イカボ";
+    case 31307:
+      return "3階、体育館前";
+    case 10115:
+      return "2階、食堂";
     default:
-      return "解説は設定されていません";
+      return "解説が設定されていない写真";
     }
-  case "medium":
+  case "middle":
     switch(id) {
+    case 10313:
+      return "1階、食堂近くの自販機";
+    case 10715:
+      return "1階、角康之研究室";
+    case 11317:
+      return "1階、アトリエ前の研究室";
+    case 30105:
+      return "3階、ミュージアム前";
+    case 30503:
+      return "3階、裏口に繋がる通路";
+    case 30509:
+      return "3階、エレクトロニクス工房にある電源が切れたペッパー君";
+    case 30905:
+      return "3階、工房のゴミ箱";
+    case 30913:
+      return "3階、西側の円卓";
+    case 31109:
+      return "3階、心理学実験室";
+    case 31507:
+      return "3階、体育館前の非常口に置いてあるフクロウの置物";
+    case 31509:
+      return "3階、大講義室(研究棟側)";
+    case 50309:
+      return "5階、東側の円卓";
+    case 50317:
+      return "5階、エレベーター前の通路";
+    case 51105:
+      return "5階、サークル室近くのゴミ箱";
     default:
-      return"解説は設定されていません";
+      return"解説が設定されていない写真";
     }
   case "hard":
     switch(id) {
+    case 10713:
+      return "調査中";
+    case 10719:
+      return "1階、真ん中のプレゼンテーションベイ(RGBのG)";
+    case 11115:
+      return "1階、西側トイレ";
+    case 11517:
+      return "1階、アトリエ前の研究室";
+    case 30507:
+      return "3階、モールのエレベータ";
+    case 30513:
+      return "3階、じゃみ研究室";
+    case 30711:
+      return "3階、美馬のゆり研究室";
+    case 30909:
+      return "3階、365教室";
+    case 40311:
+      return "4階、手前のモールの階段横の案内表示";
+    case 50109:
+      return "5階、コネカフェ近くn会議室";
+    case 50113:
+      return "5階、講堂裏の通路";
     default:
-      return"解説は設定されていません";
+      return"解説が設定されていない写真";
     }
   default:
-    return "";
+    return "この難易度に解説はない";
   }
 }
