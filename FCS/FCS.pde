@@ -27,6 +27,7 @@ ControlP5 resultButton;
 ControlP5 showAnswerButton1;
 ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
+ControlP5 modeAdventureButton;
 Gif gif;
 Gif titleGif;
 
@@ -111,6 +112,7 @@ void setup() {
   mapChoiceSetup();
   resultSetup();
   showAnswerSetup();
+  sceneAdventureSetup();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
@@ -177,6 +179,13 @@ void draw() {
     break;
   case 6:
     sceneResult();
+    break;
+  case 7:
+    if(!fileLoad){
+      fileLoad=true;
+      loadImage();
+    }
+    sceneAdventure();
     break;
   }
 }
