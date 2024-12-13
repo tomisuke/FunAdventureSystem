@@ -51,6 +51,10 @@ PImage ruleImage;
 PImage selectImage;
 PImage logoImage1;
 PImage logoImage2;
+PImage okImage;
+PImage noImage;
+PImage OkokImage;
+PImage NonoImage;
 int titleFontSize = 70;
 int subTitle = 40;
 int scene;
@@ -99,6 +103,10 @@ void setup() {
   PFont font = createFont("Meiryo", 50);
   textFont(font);
   ruleImage = loadImage("rule.png");
+  OkokImage = loadImage("Okok.png");
+  NonoImage = loadImage("Nono.png");
+  okImage = loadImage("ok.png");
+  noImage = loadImage("niwaka.png");
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();

@@ -38,11 +38,13 @@ void sceneShowAnswer() {
   image(questionImage[resultPictureNum], (width-(960*0.8))/2, 0, 960*0.8, height*0.8);
   textSize(100);
   if (judge[resultPictureNum]) {
-    fill(255, 0, 0);
-    text("正解!", 100, height-200);
+    //fill(255, 0, 0);
+    image(OkokImage, 0, 0,width,height);
+    //text("正解!", 100, height-200);
   } else {
-    fill(0, 0, 255);
-    text("不正解!", 100, height-200);
+    //fill(0, 0, 255);
+    image(NonoImage, 0, 0,width,height);
+    //text("不正解!", 100, height-200);
   }
   if (resultPictureNum == 0) {
     showAnswerButton2.hide();
