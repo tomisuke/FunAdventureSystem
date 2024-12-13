@@ -68,6 +68,7 @@ int lineWidthOutside=3;//マップの線の外枠の太さ
 int col=130;//マップのデフォルトの色
 int floor=3;//階数切り替え
 int screen=0;
+int resultPictureNum;
 // 最大サイズ
 int colorTime;//クリック時の色の濃さ初期値，RGBの濃さの値を担う。
 int score=0;//【重要】正解数です
@@ -87,11 +88,10 @@ int answerCount=0;
 //ManageQuestion manageQuestion;
 //サウンド系
 boolean soundFlag = true;
-//サーバーと通信するための変数
+//サーバーと通信するための変数　以下すずきが追加
 String serverAddress = "127.0.0.1";//サーバーのアドレス　今回はlocalhost
 int serverPort = 5000;//サーバーのポート番号
 Client client;//クライアントオブジェクト　これでプロセシングがクライアントになる
-int resultPictureNum = 0;
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -109,8 +109,8 @@ void setup() {
   ruleSetup();
   mapChoiceSetup();
   resultSetup();
-  showAnswerSetup();
   hideAllButton();
+  showAnswerSetup();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
   gif.play();
@@ -152,11 +152,9 @@ void draw() {
       } else {
         drawLoadingAnimation();
         isLoading = true;
-        soundFlag = true;
-        if (millis() - loadingStartTime > 500) {
+        if (millis() - loadingStartTime > 1000) {
           showLoading = false;
           fileLoad = false;
-          resultPictureNum = 0;
           scene = 4;
           bgm.close();
           choiceFloorBGM();
@@ -170,10 +168,14 @@ void draw() {
     sceneChoiceAnswer();
     break;
   case 5:
-    sceneShowAnswer();
-    break;
-  case 6:
     sceneResult();
+    break;
+  case 7:
+    if(!fileLoad){
+      fileLoad = true;
+      loadImage();
+    }
+    sceneAdventure();
     break;
   }
 }

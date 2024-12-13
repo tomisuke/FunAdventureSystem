@@ -75,6 +75,7 @@ void judge() {
   hideAllButton();
   showAnswerButton1.show();
 }
+
 void next() {
   resultPictureNum++;
 }
@@ -85,4 +86,37 @@ void result() {
   hideAllButton();
   resultButton.show();
   scene = 6;
+}
+
+
+void easyA(){
+  //println("a");
+  levelOption = "easy";
+  MAX_SIZE = 1;//出題は一枚だけ
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
+  scene = 7;
+  //println(scene);
+  hideAllButton();
+  pushSE();
+  bgm.close();
+}
+
+void mediumA(){
+  levelOption = "middle";
+  MAX_SIZE = 1;//出題は一枚だけ
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
+  scene = 7;
+  hideAllButton();
+  pushSE();
+  bgm.close();
+}
+
+void hardA(){
+  levelOption = "hard";
+  MAX_SIZE = 1;//出題は一枚だけ
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
+  scene = 7;
+  hideAllButton();
+  pushSE();
+  bgm.close();
 }
