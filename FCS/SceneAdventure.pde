@@ -11,4 +11,3 @@ void clientEvent(Client client) {//サーバーから何か受け取ったとき
     
 
 }
-

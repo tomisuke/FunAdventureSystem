@@ -11,4 +11,3 @@ void reconnectToServer() {
     connectToServer();//サーバーと再接続する
 
 }
-

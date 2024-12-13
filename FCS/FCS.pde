@@ -27,6 +27,12 @@ ControlP5 resultButton;
 ControlP5 showAnswerButton1;
 ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
+
+ControlP5 f1ButtonHome;
+ControlP5 f2ButtonHome;
+ControlP5 f3ButtonHome;
+ControlP5 f4ButtonHome;
+ControlP5 f5ButtonHome;
 Gif gif;
 Gif titleGif;
 
@@ -114,6 +120,7 @@ void setup() {
   okImage = loadImage("ok.png");
   noImage = loadImage("niwaka.png");
   //各シーンのセットアップ
+  choiceFloorHome();
   titleSetup();
   selectLevelSetup();
   ruleSetup();

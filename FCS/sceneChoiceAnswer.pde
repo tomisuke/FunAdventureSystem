@@ -83,16 +83,18 @@ ArrayList<Integer> numSplit(int number) {
   return result;
 }
 void displayAnswerId() {//sceneChoiseAnswer関数に存在
-  int baseX = 50;//座標のいち，ｘ座標
+  int baseX = 60;//座標のいち，ｘ座標
   int baseY = 50;//ｙ座標（１つめ）
-  int currentY=baseY;
+  //int currentY=baseY;
   fill(0);
-  int gap = 30;
+  int gap = 60;
+  textSize(50);
   for (int id : answerId) {//answerIdから要素をもらって分割する
     ArrayList<Integer> num = numSplit(id);
-    text("{" + numWrite(num) + "}", baseX, currentY);
-    currentY += gap;
+    text("{" + numWrite(num) + "}", width-baseX*5, baseY);
+    baseY += gap;
   }
+  textSize(40);
 }
 
 
