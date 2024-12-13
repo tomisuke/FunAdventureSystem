@@ -28,6 +28,7 @@ ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
 Gif gif;
 Gif titleGif;
+Gif openMapGif;
 
 PFont font;
 PFont font40;
@@ -111,8 +112,10 @@ void setup() {
   homeButton.show();
   gif = new Gif (this, "loading.gif");
   titleGif= new Gif (this, "titleA.gif");
+  openMapGif= new Gif (this, "openMap.gif");
   gif.play();
   titleGif.play();
+  openMapGif.play();
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
