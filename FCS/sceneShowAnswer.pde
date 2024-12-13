@@ -40,11 +40,15 @@ void sceneShowAnswer() {
   textSize(100);
   //回答の真偽を表示する
   if (judge[resultPictureNum]) {
-    fill(255, 0, 0);
-    text("正解!", 100, height-220);
+
+    //fill(255, 0, 0);
+    image(OkokImage, 0, 0,width,height);
+    //text("正解!", 100, height-200);
   } else {
-    fill(0, 0, 255);
-    text("不正解!", 100, height-220);
+    //fill(0, 0, 255);
+    image(NonoImage, 0, 0,width,height);
+    //text("不正解!", 100, height-200);
+
   }
   //解説を表示する
   textSize(40);
