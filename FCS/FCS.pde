@@ -24,6 +24,9 @@ ControlP5 ruleButton;
 ControlP5 mapButton;
 ControlP5 goTitleButton;
 ControlP5 resultButton;
+ControlP5 showAnswerButton1;
+ControlP5 showAnswerButton2;
+ControlP5 showAnswerButton3;
 Gif gif;
 
 PFont font;
@@ -88,6 +91,7 @@ boolean soundFlag = true;
 String serverAddress = "127.0.0.1";//サーバーのアドレス　今回はlocalhost
 int serverPort = 5000;//サーバーのポート番号
 Client client;//クライアントオブジェクト　これでプロセシングがクライアントになる
+int resultPictureNum = 0;
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -105,6 +109,7 @@ void setup() {
   ruleSetup();
   mapChoiceSetup();
   resultSetup();
+  showAnswerSetup();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
@@ -147,9 +152,11 @@ void draw() {
       } else {
         drawLoadingAnimation();
         isLoading = true;
-        if (millis() - loadingStartTime > 1000) {
+        soundFlag = true;
+        if (millis() - loadingStartTime > 500) {
           showLoading = false;
           fileLoad = false;
+          resultPictureNum = 0;
           scene = 4;
           bgm.close();
           choiceFloorBGM();
@@ -163,6 +170,9 @@ void draw() {
     sceneChoiceAnswer();
     break;
   case 5:
+    sceneShowAnswer();
+    break;
+  case 6:
     sceneResult();
     break;
   }
