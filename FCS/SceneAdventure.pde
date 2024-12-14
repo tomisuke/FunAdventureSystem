@@ -28,8 +28,8 @@ void sceneAdventureSetup() {
     finishAdventureButton.setFont(font40);
     finishAdventureButton.addButton("back")//ホーム画面に戻るボタン
        .setLabel("ホームへ")
-       .setPosition(width - buttonW, height - buttonH)
-       .setSize(buttonW, buttonH)
+       .setPosition(width - buttonW+30, height - buttonH)
+       .setSize(buttonW-30, buttonH)
        .setColorCaptionLabel(TlabelColor)
        .setColorBackground(defaultButtonColor)
        .setColorLabel(TlabelColor)
@@ -63,10 +63,17 @@ void sceneQR() {//アップロードページに飛ぶqrコードを表示
         lastwritetime = millis();
     }
 }
-//ドラムロール
-void doramroll(){
-
+//ドラムロール中に表示する画面
+void doramroll() {
+    image(bg_oldpaper,0,0,width,height);
+    textAlign(CENTER,CENTER);
+    text("結果発表",width / 2, height / 2);
+    if(millis() - lastwritetime >= 5000){
+        scene = keepscene;
+        enddoramrollSE();
+    }
 }
+
 void correctscene() {
     background(255);
     //println("正解");
@@ -82,6 +89,7 @@ void incorrectscene() {
     image(NonoImage,0,0,width,height);
     finishAdventureButton.show();
 }
+int keepscene = 0;//一時的にscene保存
 void clientEvent(Client client) {//サーバーから何か受け取ったときに発動する関数　
     String receiveS = client.readString();//serverから受け取る文字列
     //receiveSには、正解　もしくは　不正解　,nothingのどれかの文字列が入っている
@@ -91,13 +99,17 @@ void clientEvent(Client client) {//サーバーから何か受け取ったとき
         //正解していたら、正解のシーンへ
         if (receiveS.equals("正解") == true) {
             //drawLoadingAnimation();
-            scene = 10;
+            doramrollSE();
+            keepscene = 10;
+            scene = 13;
             //println("c");
         }
         //不正解なら、不正解のシーンへ
         else if (receiveS.equals("不正解") == true) {
             // drawLoadingAnimation();
-            scene = 11;
+            doramrollSE();
+            keepscene = 11;
+            scene = 13;
             //println("i");
         }
     }

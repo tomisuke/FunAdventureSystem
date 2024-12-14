@@ -1,5 +1,5 @@
 void titleBGM() {
-  bgm = minim.loadFile("sound/カメラのシャッター3.mp3");
+  bgm = minim.loadFile("sound/projectX.mp3");
   bgm.play();
 }
 void selectLevelBGM() {
@@ -50,3 +50,11 @@ void countZeroSE(){
   se = minim.loadFile("sound/決定.mp3");
   se.play();
 }
+void doramrollSE(){
+  se = minim.loadFile("sound/ドラムロール.mp3");
+  se.play();
+}
+void enddoramrollSE(){
+  se = minim.loadFile("sound/ロールの締め.mp3");
+  se.play();
+} 

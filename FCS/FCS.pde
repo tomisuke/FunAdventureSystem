@@ -268,5 +268,8 @@ void draw() {
   case 12:
     sceneCountDown();
     break;    
+  case 13:
+    doramroll();
+    break;
   }
 }
