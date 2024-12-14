@@ -141,7 +141,7 @@ void setup() {
   bg_oldpaper = loadImage("paper_adventure.png");
   mapBGImage=loadImage("mapBG.png");
   akimoto=loadImage("akimoto.png");
-  kari=loadImage("kari.png");
+  kari=loadImage("kari00.png");
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
