@@ -1,4 +1,4 @@
-void sceneAdventureSetup() {
+  void sceneAdventureSetup() {
   int buttonW = 200, buttonH = 100;
   modeAdventureButton = new ControlP5(this);
   modeAdventureButton.setFont(font40);
