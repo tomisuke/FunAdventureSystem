@@ -15,10 +15,11 @@ void resultSetup() {
 
 void sceneResult() {
   image(mapBGImage, 0, 0, width, height);  //画像を表示
-  textSize(100);
-  textAlign(CENTER, CENTER);
-  fill(0);
-  text("Result", width/2, 50);
+  image(resultImage, 0, 0, width, height);
+  //textSize(100);
+  //textAlign(CENTER, CENTER);
+  //fill(0);
+  //text("Result", width/2, 50);
   textSize(50);
   for (int i = 1; i<=MAX_SIZE; i++) {
     fill(0);
