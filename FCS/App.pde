@@ -10,6 +10,7 @@ void hideAllButton() {
   showAnswerButton2.hide();
   showAnswerButton3.hide();
   modeAdventureButton.hide();
+  completeAdventureButton.hide();
   score=0;
 }
 void rule() {
@@ -120,4 +121,15 @@ void hardA(){
   pushSE();
   bgm.close();
   modeAdventureButton.show();
+}
+
+void sc_sceneAdventure_picture(){//scはscenechangeの略
+  modeAdventureButton.hide();
+  completeAdventureButton.show();
+  scene = 8;
+}
+
+void sc_sceneQR(){
+  completeAdventureButton.hide();
+  scene = 9;
 }
