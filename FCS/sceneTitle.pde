@@ -10,11 +10,11 @@ void titleSetup() {//setup内で実行してください
   logoImage1 = loadImage("logo1.PNG");
   logoImage2 = loadImage("logo2.PNG");
   homeButton.setFont(font40);
-  int titleButtonW =300, titleButtonH = 100;
+  int titleButtonW =250, titleButtonH = 100;
 
   homeButton.addButton("begin")
     .setLabel("start")
-    .setPosition(0, height-titleButtonH*3)
+    .setPosition(width/2-150-(titleButtonW/2), height-150)
     .setSize(titleButtonW, titleButtonH)
     .setColorCaptionLabel(TlabelColor)
     .setColorBackground(TbuttonColor)
@@ -24,7 +24,7 @@ void titleSetup() {//setup内で実行してください
 
   homeButton.addButton("rule")
     .setLabel("rule")
-    .setPosition(0, height-titleButtonH*2+lines/2)
+    .setPosition(width/2+150-(titleButtonW/2), height-150)
     .setSize(titleButtonW, titleButtonH)
     .setColorCaptionLabel(TlabelColor)
     .setColorBackground(TbuttonColor)

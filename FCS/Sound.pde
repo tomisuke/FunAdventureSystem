@@ -57,4 +57,4 @@ void doramrollSE(){
 void enddoramrollSE(){
   se = minim.loadFile("sound/ロールの締め.mp3");
   se.play();
-} 
+}
