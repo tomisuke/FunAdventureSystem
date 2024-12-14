@@ -93,7 +93,7 @@ void result() {
   resultButton.show();
   scene = 6;
 }
-void easyA(){
+void easyA() {
   //println("a");
   levelOption = "easy";
   MAX_SIZE = 1;//出題は一枚だけ
@@ -106,7 +106,7 @@ void easyA(){
   modeAdventureButton.show();
 }
 
-void mediumA(){
+void mediumA() {
   levelOption = "middle";
   MAX_SIZE = 1;//出題は一枚だけ
   fileName = new String[MAX_SIZE];  //出題する写真の名前
@@ -117,7 +117,7 @@ void mediumA(){
   modeAdventureButton.show();
 }
 
-void hardA(){
+void hardA() {
   levelOption = "hard";
   MAX_SIZE = 1;//出題は一枚だけ
   fileName = new String[MAX_SIZE];  //出題する写真の名前
@@ -128,13 +128,13 @@ void hardA(){
   modeAdventureButton.show();
 }
 
-void sc_sceneAdventure_picture(){//scはscenechangeの略
+void sc_sceneAdventure_picture() {//scはscenechangeの略
   modeAdventureButton.hide();
   completeAdventureButton.show();
   scene = 8;
 }
 
-void sc_sceneQR(){
+void sc_sceneQR() {
   completeAdventureButton.hide();
   scene = 9;
 }

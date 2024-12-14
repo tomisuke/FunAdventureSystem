@@ -5,8 +5,8 @@ void mapChoiceSetup() {
   mapButton.setFont(font40);
   mapButton.addButton("delete")
     .setLabel("delete")
-    .setPosition(1000, 600)
-    .setSize(150, 150)
+    .setPosition(950, 485)
+    .setSize(320, 110)
     .setColorCaptionLabel(TlabelColor)
     .setColorBackground(defaultButtonColor)
     .setColorLabel(TlabelColor)
@@ -15,8 +15,8 @@ void mapChoiceSetup() {
 
   mapButton.addButton("judge")
     .setLabel("judge")
-    .setPosition(1200, 600)
-    .setSize(150, 150)
+    .setPosition(950, 600)
+    .setSize(320, 110)
     .setColorCaptionLabel(TlabelColor)
     .setColorBackground(defaultButtonColor)
     .setColorLabel(TlabelColor)
@@ -25,7 +25,9 @@ void mapChoiceSetup() {
 }
 void sceneChoiceAnswer() {//＝void draw，case４に存在
   textFont(font);
-  background(255);
+  //background(255);
+  fill(0);
+  image(mapBGImage, 0, 0, width, height);
   if (floor==1) {
     floorMap1();
   } else if (floor==2) {
@@ -56,9 +58,9 @@ void displayRects() {//複数の選択を視覚化
     int col = num.get(2);
 
     if (floorId == floor) {
-      fill(0, 255, 0);
+      fill(184, 27, 34, 99);
     } else {
-      fill(200);
+      fill(0, 0, 0, 0);
     }
     rectFunction(row/2, (9-col)/2+5, 1, 1);
   }
@@ -84,11 +86,11 @@ ArrayList<Integer> numSplit(int number) {
 }
 void displayAnswerId() {//sceneChoiseAnswer関数に存在
   int baseX = 60;//座標のいち，ｘ座標
-  int baseY = 50;//ｙ座標（１つめ）
+  int baseY = 80;//ｙ座標（１つめ）
   //int currentY=baseY;
-  fill(0);
-  int gap = 60;
-  textSize(50);
+  fill(255);
+  int gap = 57;
+  textSize(45);
   for (int id : answerId) {//answerIdから要素をもらって分割する
     ArrayList<Integer> num = numSplit(id);
     text("{" + numWrite(num) + "}", width-baseX*5, baseY);

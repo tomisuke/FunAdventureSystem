@@ -9,7 +9,7 @@ boolean fileLoad=false;
 boolean isLoading=false;
 String[] imageFiles;
 int nowImage = 0;
-int interval = 3000;
+int interval = 1000;
 int changeTime;
 int loadingStartTime;
 boolean showLoading = false;
@@ -19,8 +19,7 @@ void drawLoadingAnimation() {
   background(255);
   fill(0);
   //text("Now Loading", width / 2, height / 2 - 50);
-  image(gif, 512, 232);
-
+  image(fun2, 0, 0);
   pushMatrix();
   popMatrix();
 }
@@ -30,7 +29,7 @@ void loadImage() {
   displayFin=false;
 
   File folder = new File(dataPath(levelOption));
-  imageFiles = folder.list((dir, name) -> name.toLowerCase().endsWith(".jpg"));
+  imageFiles = folder.list((dir, name) -> name.toLowerCase().matches("\\d{5}.*\\.jpg"));
   if (imageFiles == null || imageFiles.length == 0) {
     println("フォルダに画像がないよう: " + levelOption);
     isLoading = false;
@@ -77,5 +76,16 @@ void drawQuestion() {
 
   if (nowImage < MAX_SIZE && questionImage[nowImage] != null) {
     image(questionImage[nowImage], (width-960)/2, 0, 960, height);
+    if (nowImage==MAX_SIZE) {
+      sceneChange=true;
+    }
+  }
+
+  if (sceneChange==true) {
+    frameRate(10);
+    image(questionImage[MAX_SIZE-1], (width-960)/2, 0, 960, height);
+    image(fun1, 0, 0);
+    sceneChange=false;
+    frameRate(60);
   }
 }
