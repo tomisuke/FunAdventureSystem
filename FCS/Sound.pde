@@ -15,7 +15,7 @@ void backSE() {
   se.play();
 }
 void pictureChangeSE() {
-  se = minim.loadFile("sound/changePicture.mp3");
+  se = minim.loadFile("カメラアプリ.mp3");
   se.play();
 }
 void pushSE() {
