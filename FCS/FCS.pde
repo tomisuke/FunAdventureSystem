@@ -66,6 +66,7 @@ PImage ruleImage;
 PImage selectImage;
 PImage logoImage1;
 PImage logoImage2;
+PImage resultImage;
 PImage bg_oldpaper;//宝の地図の紙っぽい画像 bgはbackgroundの略
 PImage qr;//アップロードページに飛ぶようのqrコード
 
@@ -143,6 +144,7 @@ void setup() {
   mapBGImage=loadImage("mapBG.png");
   akimoto=loadImage("akimoto.png");
   kari=loadImage("kari00.png");
+  resultImage = loadImage("result.png");
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
