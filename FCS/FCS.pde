@@ -229,5 +229,11 @@ void draw() {
     sceneQR();
     fileLoad = false;
     break;
+  case 10:
+    correctscene();
+    break;
+  case 11:
+    incorrectscene();
+    break;
   }
 }
