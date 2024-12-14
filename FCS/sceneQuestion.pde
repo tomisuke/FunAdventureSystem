@@ -29,7 +29,7 @@ void loadImage() {
   displayFin=false;
 
   File folder = new File(dataPath(levelOption));
-  imageFiles = folder.list((dir, name) -> name.toLowerCase().matches("\\d{5}.*\\.jpg"));
+  imageFiles = folder.list((dir, name) -> name.toLowerCase().endsWith(".jpg"));
   if (imageFiles == null || imageFiles.length == 0) {
     println("フォルダに画像がないよう: " + levelOption);
     isLoading = false;
@@ -38,8 +38,12 @@ void loadImage() {
 
   ArrayList<String> selectedFiles = new ArrayList<String>();
   for (String file : imageFiles) {
-    selectedFiles.add(file);
+    String fileNamePrefix = fiveSelect(file);
+    if (fileNamePrefix != null) {
+      selectedFiles.add(fileNamePrefix + ".jpg");
+    }
   }
+
   questionImage = new PImage[MAX_SIZE];
   for (int i = 0; i < MAX_SIZE; i++) {
     int randomIndex = int(random(selectedFiles.size()));//selectedFiles(arrayList)の要素数までのランダムな数字
@@ -54,6 +58,11 @@ void loadImage() {
   changeTime=millis();
 }
 
+String fiveSelect(String fileName) {
+  String match = fileName.replaceAll("^\\D*(\\d{5}).*", "$1");
+  return match.length() == 5 ? match : null;
+}
+
 void drawQuestion() {
   background(255);
   if (soundFlag == true) {
@@ -62,6 +71,7 @@ void drawQuestion() {
     soundFlag = false;
   }
   if (millis() - changeTime > interval) {
+
     nowImage++;
     changeTime = millis();
 
@@ -83,7 +93,7 @@ void drawQuestion() {
 
   if (sceneChange==true) {
     frameRate(10);
-    image(questionImage[MAX_SIZE-1], (width-960)/2, 0, 960, height);
+    image(questionImage[MAX_SIZE], (width-960)/2, 0, 960, height);
     image(fun1, 0, 0);
     sceneChange=false;
     frameRate(60);
