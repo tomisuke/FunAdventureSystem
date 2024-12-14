@@ -1,0 +1,77 @@
+:root {
+    --iphoneAspectW: 414px;
+    --iphoneAspectH: 896px;
+}
+
+.backimage {
+    width: var(--iphoneAspectW);
+    height: var(--iphoneAspectH);
+    background: url("img/bg.png");
+    background-size: cover;
+    background-position: 90% 40%;
+}
+
+.logo {
+    width: 140px;
+    height: 160px;
+    background: url("img/LogoFinal.PNG");
+    background-size: cover;
+}
+
+.title {
+    width: 290px;
+    height: 50px;
+    background: url("img/FAS_title.png");
+    background-size: cover;
+
+}
+
+.right {
+    top: 40px;
+    left: 140px;
+    position: absolute;
+}
+
+.low {
+    bottom: 0px;
+    left: 10px;
+    position: absolute;
+}
+
+.box1 {
+    width: var(--iphoneAspectW);
+    height: 20%;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.box2 {
+    width: var(--iphoneAspectW);
+    height: 15%;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.box3 {
+    width: var(--iphoneAspectW);
+    height: 25%;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.fontlast {
+    color: white;
+}
+
+.fontini {
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    top: -50px;
+    left: 170px;
+    position: relative;
+}
+
+.fontnext {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}

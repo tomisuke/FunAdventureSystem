@@ -26,9 +26,10 @@ void sceneAdventureSetup(){
 }
 void sceneAdventure() {//探検モードの画面
     background(255);
+    image(bg_oldpaper,0,0,width,height);
     textAlign(CENTER,CENTER);
     text("次に表示される未来大の風景と\n同じような写真を撮影してください",width/2,height/4);
-    text("写真が撮影できたら、右下に表示される探検完了ボタンを押してください",width/2,height/2);
+    text("写真が撮影できたら、\n右下に表示される探検完了ボタンを押してください",width/2,height/2);
     //準備OKボタンを押すと問題の写真が表示される
     //写真をとったら、ボタンを押してアップロードページに飛べるqrコードを表示
 }
