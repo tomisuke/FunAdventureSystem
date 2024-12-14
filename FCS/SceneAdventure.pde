@@ -91,6 +91,7 @@ void incorrectscene() {
 }
 int keepscene = 0;//一時的にscene保存
 void clientEvent(Client client) {//サーバーから何か受け取ったときに発動する関数　
+
     String receiveS = client.readString();//serverから受け取る文字列
     //receiveSには、正解　もしくは　不正解　,nothingのどれかの文字列が入っている
     
@@ -112,6 +113,7 @@ void clientEvent(Client client) {//サーバーから何か受け取ったとき
             scene = 13;
             //println("i");
         }
+
     }
     
     reconnectToServer();

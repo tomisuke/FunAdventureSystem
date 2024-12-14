@@ -3,7 +3,6 @@ void connectToServer() {//サーバーと接続する関数
   println("Connected to server: " + serverAddress + "on port" + serverPort);
 }
 
-
 void reconnectToServer() {
   if (client != null) {
     client = null;//一度、サーバーとの接続を閉じる
