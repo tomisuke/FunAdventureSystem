@@ -72,7 +72,6 @@ String fiveSelect(String fileName) {
   return match.length() == 5 ? match : null;
 }
 
-
 boolean gifStarted = false;
 int gifStartTime = 0;
 int gifDuration = 3000;

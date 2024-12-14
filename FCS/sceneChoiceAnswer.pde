@@ -219,7 +219,6 @@ void texts() {//方眼紙の横にあるマス目の数字
   textAlign(LEFT, TOP);
 }
 
-
 //以下，お役立ち関数まとめ
 void lineFunction(int x1, int y1, int x2, int y2) {//lineを引く省略のための関数
   line(centerX+floorSize*x1, centerY+floorSize*y1, centerX+floorSize*x2, centerY+floorSize*y2);
