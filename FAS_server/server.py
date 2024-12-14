@@ -7,6 +7,7 @@ import glob
 import cv2
 from skimage.metrics import structural_similarity as ssim
 import shutil
+import time
 #サーバーを起動するpcとスマホが同じネットワーク内にいることを確認
 #Flaskのサーバー
 app = Flask(__name__, template_folder='templates')
@@ -30,6 +31,19 @@ def run_flask():
 stop_event = threading.Event()
 
 #Processingのサーバー
+def safe_delete_and_recreate(directory):
+    retries = 5
+    for _ in range(retries):
+        try:
+            if os.path.exists(directory):
+                shutil.rmtree(directory)
+            os.mkdir(directory)
+            return
+        except PermissionError:
+            print("ディレクトリにアクセスし直す")
+            time.sleep(1)
+    raise PermissionError("ディレクトリの削除に失敗")
+
 def run_socket():
     port = 5000
     BUFSIZE = 4096
@@ -82,8 +96,7 @@ def run_socket():
             else:
                 client.sendall("不正解".encode(FORMAT))
             #funimageファイルの中身を空にする
-            shutil.rmtree('FunAdventureSystem/FAS_server/FunImage')
-            os.mkdir('FunAdventureSystem/FAS_server/FunImage')
+            safe_delete_and_recreate('FunAdventureSystem/FAS_server/FunImage')
             client.close()
 
     except KeyboardInterrupt:

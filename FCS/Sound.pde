@@ -1,5 +1,5 @@
 void titleBGM() {
-  bgm = minim.loadFile("sound/projectX.mp3");
+  bgm = minim.loadFile("sound/カメラのシャッター3.mp3");
   bgm.play();
 }
 void selectLevelBGM() {
@@ -40,5 +40,13 @@ void ChoiceFloorDeleteSE(){
 }
 void ChoiceFloorJudgeSE(){
   se = minim.loadFile("sound/ヒット.mp3");
+  se.play();
+}
+void countDownSE(){
+  se = minim.loadFile("sound/タイプライター.mp3");
+  se.play();
+}
+void countZeroSE(){
+  se = minim.loadFile("sound/決定.mp3");
   se.play();
 }

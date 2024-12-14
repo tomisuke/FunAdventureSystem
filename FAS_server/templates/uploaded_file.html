@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アップロード完了</title>
-</head>
+{% block content %}
 
 <body>
-    <h1>ファイルアップロード完了</h1>
-    <h2>{{filename}}</h2>
+    <div class=body>
+        <div class=backimage>
+            <div class=box1>
+                <div class=logo></div>
+                <div class=right>
+                    <div class=title></div>
+                </div>
+
+                <div class=fontini>
+                    探検モード
+                </div>
+
+            </div>
+            <div class=box2></div>
+            <div class=box3>
+                <div class=fontnext>
+                    <br>{{filename}}アップロード完了</br>
+                    結果を見てみよう
+                </div>
+            </div>
+            <div class=low>
+                <div class=fontlast>
+                    制作:2024コミュニケーションⅡ 1-k group2
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 </html>
+{% endblock content %}
