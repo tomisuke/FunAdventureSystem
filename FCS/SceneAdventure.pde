@@ -52,14 +52,14 @@ void sceneQR() {//アップロードページに飛ぶqrコードを表示
   }
 }
 
-void correctscene() {
+void correctscene(){
   background(255);
-  println("正解");
+  //println("正解");
 }
 
 void incorrectscene() {
   background(255);
-  println("不正解");
+  //println("不正解");
 }
 void clientEvent(Client client) {//サーバーから何か受け取ったときに発動する関数　
   String receiveS = client.readString();//serverから受け取る文字列
