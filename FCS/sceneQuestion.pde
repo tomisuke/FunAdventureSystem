@@ -16,7 +16,7 @@ boolean showLoading = false;
 String fileName[];
 
 void drawLoadingAnimation() {
-  background(255);
+  image(mapBGImage, 0, 0, width, height);  //画像を表示
   fill(0);
   //text("Now Loading", width / 2, height / 2 - 50);
   image(fun2, 0, 0);

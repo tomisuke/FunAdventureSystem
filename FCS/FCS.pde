@@ -238,5 +238,8 @@ void draw() {
     sceneQR();
     fileLoad = false;
     break;
+  case 10:
+    sceneCountDown();
+    break;    
   }
 }

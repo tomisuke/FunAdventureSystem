@@ -34,7 +34,6 @@ void showAnswerSetup() {
     .setColorActive(defaultActiveColor);
 }
 void sceneShowAnswer() {
-
   image(mapBGImage, 0, 0, width, height);  //画像を表示
   fill(255);
   rect( (width-(960*0.8))/2-10, 20, 960*0.8+20, height*0.8+20);
@@ -55,20 +54,9 @@ void sceneShowAnswer() {
   textSize(40);
   answerComment = takeAnswerComment(fileName[resultPictureNum]);
   fill(0);
-  text(answerComment, 180, 600);
-  //次へボタンや、戻るボタンを表示する
-  if (resultPictureNum == 0) {
-    showAnswerButton2.hide();
-  } else if (resultPictureNum == 1) {
-    showAnswerButton2.show();
-  } else if (resultPictureNum == MAX_SIZE-1) {
-    hideAllButton();
-    showAnswerButton2.show();
-    showAnswerButton3.show();
-  } else if (resultPictureNum == MAX_SIZE-2) {
-    showAnswerButton1.show();
-    showAnswerButton3.hide();
-  }
+  text(answerComment, 200, 650);//解説を表示
+  //次へボタンや、戻るボタンを表示す
+  println(resultPictureNum);
 }
 String takeAnswerComment(String fileName) {
   int id =  toFileNameInt(fileName);

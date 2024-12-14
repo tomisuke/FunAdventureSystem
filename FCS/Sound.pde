@@ -42,3 +42,7 @@ void ChoiceFloorJudgeSE(){
   se = minim.loadFile("sound/ヒット.mp3");
   se.play();
 }
+void countDownSE(){
+  se = minim.loadFile("sound/タイプライター.mp3");
+  se.play();
+}
