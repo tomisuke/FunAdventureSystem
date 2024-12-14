@@ -1,5 +1,5 @@
 void titleBGM() {
-  bgm = minim.loadFile("sound/カメラのシャッター3.mp3");
+  bgm = minim.loadFile("sound/projectX.mp3");
   bgm.play();
 }
 void selectLevelBGM() {
