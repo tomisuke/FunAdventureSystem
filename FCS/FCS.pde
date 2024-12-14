@@ -74,6 +74,8 @@ PImage noImage;
 PImage OkokImage;
 PImage NonoImage;
 PImage mapBGImage;
+PImage akimoto;
+PImage kari;
 
 int titleFontSize = 70;
 int subTitle = 40;
@@ -102,6 +104,7 @@ boolean resetId=false;
 boolean sceneChange=false;
 ArrayList<Integer> answerId2[]=new ArrayList[5];
 boolean[] judge;
+boolean fun2Finished=false;
 int l1=10;//方眼紙のマス目の点線の長さ
 int l2=8;//線の間の長さ（余白）
 int l3=3;//上より，デフォルトの値は２　l1とl2の値によって１～３が入る。
@@ -138,6 +141,8 @@ void setup() {
   noImage = loadImage("niwaka.png");
   bg_oldpaper = loadImage("paper_adventure.png");
   mapBGImage=loadImage("mapBG.png");
+  akimoto=loadImage("akimoto.png");
+  kari=loadImage("kari.png");
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
@@ -152,9 +157,9 @@ void setup() {
   titleGif= new Gif (this, "titleA.gif");
   gif.play();
   titleGif.play();
-  fun1 = new Gif (this, "fun1.gif");
-  fun2 = new Gif (this, "fun2.gif");
-  fun1.play();
+  //fun1 = new Gif (this, "akimotoka.gif");
+  fun2 = new Gif (this, "hontai.gif");
+  //fun1.play();
   fun2.play();
   //setupQuestion();
   //map系
@@ -166,6 +171,8 @@ void setup() {
   connectToServer();
   qr = loadImage("toUploadpage_qr.png");
 }
+
+boolean fun2Started=false;
 
 void draw() {
   //シーン切り換え
@@ -182,25 +189,37 @@ void draw() {
     break;
   case 3:
     if (!fileLoad) {
-      fileLoad=true;
+      fileLoad = true;
       loadImage();
     }
-    if (fileLoad&&!isLoading) {
+    if (fileLoad && !isLoading) {
       drawQuestion();
     }
     if (displayFin) {
       if (!showLoading) {
-        showLoading=true;
-        loadingStartTime=millis();
+        showLoading = true;
+        loadingStartTime = millis();
+        fun2Finished = false;
+        fun2Started = false;
       } else {
         drawLoadingAnimation();
-        isLoading = true;
-        soundFlag = true;
-        if (millis() - loadingStartTime > 500) {
+        if (!gifStarted) {
+          gifStarted = true;
+          gifStartTime = millis();
+          fun2.jump(0);
+          fun2.play();
+        }
+        image(fun2, 0, 0);
+        if (millis() - gifStartTime >= gifDuration - 1200) {
+          image(kari, 0, 0);
+        }
+        if (millis() - gifStartTime >= gifDuration) {
+          fun2.stop();
+          fun2Finished = true;
+          scene = 4;
           showLoading = false;
           fileLoad = false;
           resultPictureNum = 0;
-          scene = 4;
           bgm.close();
           choiceFloorBGM();
           mapButton.show();
@@ -215,6 +234,7 @@ void draw() {
       }
     }
     break;
+
   case 4://mapシーン
     sceneChoiceAnswer();
     break;

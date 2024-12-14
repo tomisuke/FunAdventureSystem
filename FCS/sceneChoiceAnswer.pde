@@ -88,6 +88,7 @@ void sceneChoiceAnswer() {//＝void draw，case４に存在
   //background(255);
   fill(0);
   image(mapBGImage, 0, 0, width, height);
+  image(akimoto,0, 0, width, height);
   if (floor==1) {
     floorMap1();
   } else if (floor==2) {

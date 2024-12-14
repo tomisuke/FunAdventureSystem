@@ -16,20 +16,29 @@ boolean showLoading = false;
 String fileName[];
 
 void drawLoadingAnimation() {
-  image(mapBGImage, 0, 0, width, height);  //画像を表示
-  fill(0);
-  //text("Now Loading", width / 2, height / 2 - 50);
-  image(fun2, 0, 0);
-  pushMatrix();
-  popMatrix();
+  if (!fun2Finished) {
+    if (!fun2.isPlaying() && !fun2Started) {
+      fun2.play();
+      fun2Started = true;
+    }
+    if (fun2.isPlaying()) {
+      image(fun2, 0, 0);
+    } else {
+      fun2Finished = true;
+    }
+  } else {
+    image(fun2, 0, 0);
+  }
 }
 
+
 void loadImage() {
-  isLoading=true;
-  displayFin=false;
+  isLoading = true;
+  displayFin = false;
 
   File folder = new File(dataPath(levelOption));
   imageFiles = folder.list((dir, name) -> name.toLowerCase().endsWith(".jpg"));
+
   if (imageFiles == null || imageFiles.length == 0) {
     println("フォルダに画像がないよう: " + levelOption);
     isLoading = false;
@@ -55,13 +64,18 @@ void loadImage() {
   }
 
   isLoading = false;
-  changeTime=millis();
+  changeTime = millis();
 }
 
 String fiveSelect(String fileName) {
   String match = fileName.replaceAll("^\\D*(\\d{5}).*", "$1");
   return match.length() == 5 ? match : null;
 }
+
+
+boolean gifStarted = false;
+int gifStartTime = 0;
+int gifDuration = 3000;
 
 void drawQuestion() {
   background(255);
