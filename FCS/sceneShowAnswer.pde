@@ -54,7 +54,7 @@ void sceneShowAnswer() {
   textSize(40);
   answerComment = takeAnswerComment(fileName[resultPictureNum]);
   fill(0);
-  text(answerComment, 180, 600);
+  text(answerComment, 180, 650);
   //次へボタンや、戻るボタンを表示する
   if (resultPictureNum == 0) {
     showAnswerButton2.hide();
