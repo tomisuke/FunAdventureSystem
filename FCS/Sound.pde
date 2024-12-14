@@ -19,7 +19,7 @@ void pictureChangeSE() {
   se.play();
 }
 void pushSE() {
-  se = minim.loadFile("sound/爆発.mp3");
+  se = minim.loadFile("sound/push.mp3");
   se.play();
 }
 void choiceFloorSE() {

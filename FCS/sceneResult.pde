@@ -27,11 +27,11 @@ void sceneResult() {
     text("問題"+i, width/2-100, resultPos);
     if (judge[i-1]) {
       fill(255, 0, 0);
-      image(okImage, width/2, resultPos-75, 150, 150);
+      image(okImage, width/2, resultPos-95, 150, 200);
       //text("正解!", width/2+200, 100+80*i);
     } else {
       fill(0, 0, 255);
-      image(noImage, width/2, resultPos-75, 150, 150);
+      image(noImage, width/2, resultPos-95, 150, 200);
       //text("不正解!", 0, 0, width, height);
     }
   }
