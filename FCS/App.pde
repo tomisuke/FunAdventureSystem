@@ -62,7 +62,7 @@ void medium() {
 }
 void hard() {
   levelOption = "hard";
-  MAX_SIZE = 7;
+  MAX_SIZE = 5;
   judge = new boolean[MAX_SIZE];
   fileName = new String[MAX_SIZE];  //出題する写真の名前
   scene = 10;

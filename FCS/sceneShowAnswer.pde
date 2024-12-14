@@ -55,8 +55,6 @@ void sceneShowAnswer() {
   answerComment = takeAnswerComment(fileName[resultPictureNum]);
   fill(0);
   text(answerComment, 200, 650);//解説を表示
-  //次へボタンや、戻るボタンを表示す
-  println(resultPictureNum);
 }
 String takeAnswerComment(String fileName) {
   int id =  toFileNameInt(fileName);
