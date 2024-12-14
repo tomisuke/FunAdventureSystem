@@ -41,6 +41,14 @@ Python
 利用したフレームワーク・ライブラリ  
 controlP5
 minim
+opencv
+skimage.metrics.structural_similarity
+Flask
+threading
+socket
+datetime
+shutil
+os
 
 その他開発に使用したツール・サービス
 Figma
