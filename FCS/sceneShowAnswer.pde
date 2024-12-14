@@ -34,9 +34,11 @@ void showAnswerSetup() {
     .setColorActive(defaultActiveColor);
 }
 void sceneShowAnswer() {
-  background(255);
-  //画像を表示
-  image(questionImage[resultPictureNum], (width-(960*0.8))/2, 0, 960*0.8, height*0.8);
+
+  image(mapBGImage, 0, 0, width, height);  //画像を表示
+  fill(255);
+  rect( (width-(960*0.8))/2-10, 20, 960*0.8+20, height*0.8+20);
+  image(questionImage[resultPictureNum], (width-(960*0.8))/2, 30, 960*0.8, height*0.8);
   textSize(100);
   //回答の真偽を表示する
   if (judge[resultPictureNum]) {
