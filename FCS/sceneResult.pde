@@ -12,6 +12,7 @@ void resultSetup() {
     .setColorForeground(defaultForegroundColor)
     .setColorActive(defaultActiveColor);
 }
+
 void sceneResult() {
   image(mapBGImage, 0, 0, width, height);  //画像を表示
   textSize(100);

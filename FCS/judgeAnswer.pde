@@ -10,11 +10,13 @@ void judgeAnswer() {//判定ボタンで正誤判定開始
     }
   }
 }
+
 void judgeCancel() {//deleteに存在，判定を取り消す関数
   for (int i=0; i<MAX_SIZE; i++) {
     judge[i]=false;
   }
 }
+
 int toFileNameInt(String fileName) {
   String onlyID = fileName.replaceAll("[^0-9]", "");//String型のfileNameをIDのみに変換。ex)"12345.jpg"→12345
   return int(onlyID);

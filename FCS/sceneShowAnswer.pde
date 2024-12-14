@@ -33,6 +33,7 @@ void showAnswerSetup() {
     .setColorForeground(defaultForegroundColor)
     .setColorActive(defaultActiveColor);
 }
+
 void sceneShowAnswer() {
   image(mapBGImage, 0, 0, width, height);  //画像を表示
   fill(255);
@@ -41,7 +42,6 @@ void sceneShowAnswer() {
   textSize(100);
   //回答の真偽を表示する
   if (judge[resultPictureNum]) {
-
     //fill(255, 0, 0);
     image(OkokImage, 0, 0, width, height);
     //text("正解!", 100, height-200);
@@ -50,11 +50,18 @@ void sceneShowAnswer() {
     image(NonoImage, 0, 0, width, height);
     //text("不正解!", 100, height-200);
   }
+
   //解説を表示する
   textSize(40);
   answerComment = takeAnswerComment(fileName[resultPictureNum]);
+  rectMode(CENTER);
+  fill(255,255,255,100);
+  rect(width/2,650,700,80);
+  rectMode(CORNER);
+  textAlign(CENTER);
   fill(0);
-  text(answerComment, 200, 650);//解説を表示
+  text(answerComment, width/2, 670);//解説を表示
+  textAlign(LEFT, TOP);
 }
 String takeAnswerComment(String fileName) {
   int id =  toFileNameInt(fileName);
