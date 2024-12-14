@@ -200,6 +200,7 @@ void draw() {
           f3ButtonHome.show();
           f4ButtonHome.show();
           f5ButtonHome.show();
+          floor = 3;
           isLoading = false;
         }
       }
