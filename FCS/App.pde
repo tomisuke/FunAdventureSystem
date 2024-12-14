@@ -9,6 +9,8 @@ void hideAllButton() {
   showAnswerButton1.hide();
   showAnswerButton2.hide();
   showAnswerButton3.hide();
+  modeAdventureButton.hide();
+  completeAdventureButton.hide();
   score=0;
 }
 void rule() {
@@ -85,4 +87,49 @@ void result() {
   hideAllButton();
   resultButton.show();
   scene = 6;
+}
+void easyA(){
+  //println("a");
+  levelOption = "easy";
+  MAX_SIZE = 1;//出題は一枚だけ
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
+  scene = 7;
+  //println(scene);
+  hideAllButton();
+  pushSE();
+  bgm.close();
+  modeAdventureButton.show();
+}
+
+void mediumA(){
+  levelOption = "middle";
+  MAX_SIZE = 1;//出題は一枚だけ
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
+  scene = 7;
+  hideAllButton();
+  pushSE();
+  bgm.close();
+  modeAdventureButton.show();
+}
+
+void hardA(){
+  levelOption = "hard";
+  MAX_SIZE = 1;//出題は一枚だけ
+  fileName = new String[MAX_SIZE];  //出題する写真の名前
+  scene = 7;
+  hideAllButton();
+  pushSE();
+  bgm.close();
+  modeAdventureButton.show();
+}
+
+void sc_sceneAdventure_picture(){//scはscenechangeの略
+  modeAdventureButton.hide();
+  completeAdventureButton.show();
+  scene = 8;
+}
+
+void sc_sceneQR(){
+  completeAdventureButton.hide();
+  scene = 9;
 }

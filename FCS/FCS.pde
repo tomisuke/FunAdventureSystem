@@ -28,11 +28,16 @@ ControlP5 showAnswerButton1;
 ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
 
+ControlP5 modeAdventureButton;
+ControlP5 completeAdventureButton;
+
+
 ControlP5 f1ButtonHome;
 ControlP5 f2ButtonHome;
 ControlP5 f3ButtonHome;
 ControlP5 f4ButtonHome;
 ControlP5 f5ButtonHome;
+
 Gif gif;
 Gif titleGif;
 
@@ -59,10 +64,14 @@ PImage ruleImage;
 PImage selectImage;
 PImage logoImage1;
 PImage logoImage2;
+
+PImage qr;//アップロードページに飛ぶようのqrコード
+
 PImage okImage;
 PImage noImage;
 PImage OkokImage;
 PImage NonoImage;
+
 int titleFontSize = 70;
 int subTitle = 40;
 int scene;
@@ -103,7 +112,11 @@ String serverAddress = "127.0.0.1";//サーバーのアドレス　今回はloca
 int serverPort = 5000;//サーバーのポート番号
 Client client;//クライアントオブジェクト　これでプロセシングがクライアントになる
 int resultPictureNum = 0;
+
+int lastwritetime = 0;//サーバーに送信した時間を記録
+
 String answerComment = "";
+
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -127,6 +140,7 @@ void setup() {
   mapChoiceSetup();
   resultSetup();
   showAnswerSetup();
+  sceneAdventureSetup();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
@@ -141,6 +155,7 @@ void setup() {
   }
   //サーバーと接続する　初回接続
   connectToServer();
+  qr = loadImage("toUploadpage_qr.png");
 }
 
 void draw() {
@@ -193,6 +208,20 @@ void draw() {
     break;
   case 6:
     sceneResult();
+    break;
+  case 7:
+    if(!fileLoad){
+      fileLoad=true;
+      loadImage();
+    }
+    sceneAdventure();
+    break;
+  case 8:
+    sceneAdventure_picture();
+    break;
+  case 9:
+    sceneQR();
+    fileLoad = false;
     break;
   }
 }

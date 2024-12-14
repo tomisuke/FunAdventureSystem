@@ -7,7 +7,7 @@ import glob
 import cv2
 from skimage.metrics import structural_similarity as ssim
 import shutil
-
+#サーバーを起動するpcとスマホが同じネットワーク内にいることを確認
 #Flaskのサーバー
 app = Flask(__name__, template_folder='templates')
 
@@ -17,7 +17,7 @@ def upload():
         return render_template('upload.html')
     elif request.method == 'POST':
         file = request.files['example']
-        file.save(os.path.join('FAS/FunImage', file.filename))
+        file.save(os.path.join('FunAdventureSystem/FAS_server/FunImage', file.filename))
         return redirect(url_for('uploaded_file', filename=file.filename))
 
 @app.route('/uploaded_file/<string:filename>')
@@ -53,8 +53,8 @@ def run_socket():
             data = client.recv(BUFSIZE)#クライアント(processing)から貰うデータ
             print(data.decode(FORMAT))
 
-            pic1 = "FAS/FunImage1/" + data.decode(FORMAT)
-            files = glob.glob("./FAS/FunImage/*.jpeg")#funimage下のjpegファイルを探して、pic2に入れる
+            pic1 = "FunAdventureSystem/FAS_server/FunImage1/" + data.decode(FORMAT)
+            files = glob.glob("./FunAdventureSystem/FAS_server/FunImage/*.jpeg")#funimage下のjpegファイルを探して、pic2に入れる
             
             pic2 = None  # 初期化
             for file in files:
@@ -64,7 +64,7 @@ def run_socket():
             # pic2が空の場合は処理をスキップする
             if not pic2:
                 print("No valid file found for comparison, skipping...")
-                #client.sendall("画像がありません".encode(FORMAT))
+                client.sendall("nothing".encode(FORMAT))
                 client.close()
                 continue
 
@@ -78,12 +78,12 @@ def run_socket():
             print(f"SSIM Score: {score}")
             #ssimが0.5以上で正解にする
             if score >= 0.5:
-                client.sendall("正解！".encode(FORMAT))
+                client.sendall("正解".encode(FORMAT))
             else:
-                client.sendall("不正解...".encode(FORMAT))
+                client.sendall("不正解".encode(FORMAT))
             #funimageファイルの中身を空にする
-            shutil.rmtree('FAS/FunImage')
-            os.mkdir('FAS/FunImage')
+            shutil.rmtree('FunAdventureSystem/FAS_server/FunImage')
+            os.mkdir('FunAdventureSystem/FAS_server/FunImage')
             client.close()
 
     except KeyboardInterrupt:
