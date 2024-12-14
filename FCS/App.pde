@@ -84,11 +84,14 @@ void judge() {
 }
 void next() {
   resultPictureNum++;
+  pushSE();
 }
 void backPicture() {
   resultPictureNum--;
+  backSE();
 }
 void result() {
+  pushSE();
   hideAllButton();
   resultButton.show();
   scene = 6;
@@ -140,16 +143,21 @@ void sc_sceneQR() {
 }
 void f1(){
   floor = 1;
+  pushSE();
 }
 void f2(){
   floor = 2;
+  pushSE();
 }
 void f3(){
   floor = 3;
+  pushSE();
 }
 void f4(){
   floor = 4;
+  pushSE();
 }
 void f5(){
   floor = 5;
+  pushSE();
 }
