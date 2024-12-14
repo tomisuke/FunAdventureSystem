@@ -23,13 +23,13 @@ void sceneResult() {
     fill(0);
     text("問題"+i, width/2-200, 100+80*i);
     if (judge[i-1]) {
-      fill(255,0,0);
+      fill(255, 0, 0);
       //image(okImage,width/2+20,-100+80*i);
       text("正解!", width/2+200, 100+80*i);
     } else {
-      fill(0,0,255);
+      fill(0, 0, 255);
       //image(noImage,width/2+20,-100+80*i);
-      text("不正解!", 0,0,width, height);
+      text("不正解!", 0, 0, width, height);
     }
   }
 }

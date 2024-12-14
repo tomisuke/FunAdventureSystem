@@ -42,13 +42,12 @@ void sceneShowAnswer() {
   if (judge[resultPictureNum]) {
 
     //fill(255, 0, 0);
-    image(OkokImage, 0, 0,width,height);
+    image(OkokImage, 0, 0, width, height);
     //text("正解!", 100, height-200);
   } else {
     //fill(0, 0, 255);
-    image(NonoImage, 0, 0,width,height);
+    image(NonoImage, 0, 0, width, height);
     //text("不正解!", 100, height-200);
-
   }
   //解説を表示する
   textSize(40);
