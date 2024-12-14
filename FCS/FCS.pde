@@ -137,6 +137,7 @@ void setup() {
   okImage = loadImage("ok.png");
   noImage = loadImage("niwaka.png");
   mapBGImage=loadImage("mapBG.png");
+
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
