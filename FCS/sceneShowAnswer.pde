@@ -56,7 +56,7 @@ void sceneShowAnswer() {
   answerComment = takeAnswerComment(fileName[resultPictureNum]);
   rectMode(CENTER);
   fill(255,255,255,100);
-  rect(width/2,650,700,80);
+  rect(width/2,660,790,80);
   rectMode(CORNER);
   textAlign(CENTER);
   fill(0);
@@ -89,7 +89,7 @@ String takeAnswerComment(String fileName) {
     case 30311:
       return "3階、ライブラリ横の通路。モール側";
     case 30707:
-      return "3階、モールの真ん中にあるモニュメント。364前";
+      return "3階、モール真ん中のモニュメント。364前";
     case 30907:
       return "3階、イカボ。365、工房前";
     case 31103:
@@ -118,7 +118,7 @@ String takeAnswerComment(String fileName) {
     case 30503:
       return "3階、裏口に繋がる通路";
     case 30509:
-      return "3階、エレクトロニクス工房にある電源が切れたペッパー君";
+      return "3階、エレ工にある電源が切れたペッパー君";
     case 30905:
       return "3階、工房のゴミ箱";
     case 30913:
@@ -126,7 +126,7 @@ String takeAnswerComment(String fileName) {
     case 31109:
       return "3階、心理学実験室";
     case 31507:
-      return "3階、体育館前の非常口に置いてあるフクロウの置物";
+      return "3階、体育館前の非常口のフクロウ";
     case 31509:
       return "3階、大講義室(研究棟側)";
     case 50309:
@@ -143,7 +143,7 @@ String takeAnswerComment(String fileName) {
     case 10713:
       return "調査中";
     case 10719:
-      return "1階、真ん中のプレゼンテーションベイ(RGBのG)";
+      return "1階、真ん中のプレベイ(RGBのG)";
     case 11115:
       return "1階、西側トイレ";
     case 11517:
