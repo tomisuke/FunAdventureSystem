@@ -15,25 +15,8 @@ int loadingStartTime;
 boolean showLoading = false;
 String fileName[];
 
-void drawLoadingAnimation() {
-  if (!fun2Finished) {
-    if (!fun2.isPlaying() && !fun2Started) {
-      fun2.play();
-      fun2Started = true;
-    }
-    if (fun2.isPlaying()) {
-      image(fun2, 0, 0);
-    } else {
-      fun2Finished = true;
-    }
-  } else {
-    image(fun2, 0, 0);
-  }
-}
-
-
 void loadImage() {
-  isLoading = true;
+  println("loadImage");
   displayFin = false;
 
   File folder = new File(dataPath(levelOption));
@@ -62,8 +45,6 @@ void loadImage() {
     questionImage[i] = loadImage(levelOption + "/" + fileName[i]);
     println("よみこみ: " + fileName[i]);
   }
-
-  isLoading = false;
   changeTime = millis();
 }
 
@@ -77,6 +58,7 @@ int gifStartTime = 0;
 int gifDuration = 3000;
 
 void drawQuestion() {
+  println("drawQuestion");
   background(255);
   if (soundFlag == true) {
     pictureChangeSE();

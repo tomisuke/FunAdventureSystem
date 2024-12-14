@@ -70,13 +70,11 @@ void clientEvent(Client client) {//サーバーから何か受け取ったとき
     println(receiveS);
     //正解していたら、正解のシーンへ
     if (receiveS.equals("正解") == true) {
-      drawLoadingAnimation();
       scene = 10;
       //println("c");
     }
     //不正解なら、不正解のシーンへ
     else if (receiveS.equals("不正解") == true) {
-      drawLoadingAnimation();
       scene = 11;
       //println("i");
     }

@@ -159,7 +159,7 @@ void setup() {
   //fun1 = new Gif (this, "akimotoka.gif");
   fun2 = new Gif (this, "hontai.gif");
   //fun1.play();
-  fun2.play();
+  image(mapBGImage, 0, 0, width, height);  //背景を表示
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
@@ -191,18 +191,17 @@ void draw() {
       fileLoad = true;
       loadImage();
     }
-    if (fileLoad && !isLoading) {
+    if (fileLoad&&!displayFin) {//画像が読み込まれているかつ、表示されていない画像が残っている場合
       drawQuestion();
     }
     if (displayFin) {
-      if (!showLoading) {
+      if (!showLoading) {//問題の表示が終わった時1度だけ実行される
         showLoading = true;
         loadingStartTime = millis();
         fun2Finished = false;
         fun2Started = false;
-      } else {
-        drawLoadingAnimation();
-        if (!gifStarted) {
+      } else {//問題の表示が終わった後の処理
+        if (!gifStarted) {//gifがスタートしていない場合
           gifStarted = true;
           gifStartTime = millis();
           fun2.jump(0);
@@ -212,12 +211,18 @@ void draw() {
         if (millis() - gifStartTime >= gifDuration - 1200) {
           image(kari, 0, 0);
         }
-        if (millis() - gifStartTime >= gifDuration) {
+        if (millis() - gifStartTime >= gifDuration) {//gifの再生時間が終わったら
           fun2.stop();
-          fun2Finished = true;
           scene = 4;
+          println("シーンは4");
+          soundFlag = true;
           showLoading = false;
-          fileLoad = false;
+          //fileLoad = false;
+          fun2Finished = true;
+          fun2Started = true;
+          gifStarted = false;
+          //isLoading=false;
+          displayFin = false;
           resultPictureNum = 0;
           bgm.close();
           choiceFloorBGM();
@@ -228,12 +233,10 @@ void draw() {
           f4ButtonHome.show();
           f5ButtonHome.show();
           floor = 3;
-          isLoading = false;
         }
       }
     }
     break;
-
   case 4://mapシーン
     sceneChoiceAnswer();
     break;
@@ -265,6 +268,6 @@ void draw() {
     break;
   case 12:
     sceneCountDown();
-    break;    
+    break;
   }
 }
