@@ -133,7 +133,6 @@ void setup() {
   okImage = loadImage("ok.png");
   noImage = loadImage("niwaka.png");
   //各シーンのセットアップ
-  choiceFloorHome();
   titleSetup();
   selectLevelSetup();
   ruleSetup();
@@ -141,6 +140,7 @@ void setup() {
   resultSetup();
   showAnswerSetup();
   sceneAdventureSetup();
+  choiceFloorHome();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
@@ -210,7 +210,7 @@ void draw() {
     sceneResult();
     break;
   case 7:
-    if(!fileLoad){
+    if (!fileLoad) {
       fileLoad=true;
       loadImage();
     }
