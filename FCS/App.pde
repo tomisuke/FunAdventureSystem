@@ -45,7 +45,7 @@ void easy() {
   MAX_SIZE = 3;
   judge = new boolean[MAX_SIZE];
   fileName = new String[MAX_SIZE];  //出題する写真の名前
-  scene = 10;
+  scene = 12;
   hideAllButton();
   pushSE();
   bgm.close();
@@ -55,7 +55,7 @@ void medium() {
   MAX_SIZE = 5;
   judge = new boolean[MAX_SIZE];
   fileName = new String[MAX_SIZE];  //出題する写真の名前
-  scene = 10;
+  scene = 12;
   hideAllButton();
   pushSE();
   bgm.close();
@@ -65,7 +65,7 @@ void hard() {
   MAX_SIZE = 5;
   judge = new boolean[MAX_SIZE];
   fileName = new String[MAX_SIZE];  //出題する写真の名前
-  scene = 10;
+  scene = 12;
   hideAllButton();
   pushSE();
   bgm.close();
