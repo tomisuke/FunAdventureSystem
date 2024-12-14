@@ -58,7 +58,8 @@ int gifStartTime = 0;
 int gifDuration = 3000;
 
 void drawQuestion() {
-  background(255);
+  //background(255);
+  image(mapBGImage, 0, 0, width, height);
   if (soundFlag == true) {
     pictureChangeSE();
     println("test");
@@ -79,7 +80,9 @@ void drawQuestion() {
   }
 
   if (nowImage < MAX_SIZE && questionImage[nowImage] != null) {
-    image(questionImage[nowImage], (width-960)/2, 0, 960, height);
+    fill(255);
+    rect((width-960)/2+20, 40, 930, height-80);
+    image(questionImage[nowImage], (width-960)/2+30, 50, 910, height-100);
     if (nowImage==MAX_SIZE) {
       sceneChange=true;
     }
