@@ -210,6 +210,7 @@ void draw() {
           fun2.jump(0);
           fun2.play();
         }
+        image(questionImage[MAX_SIZE-1],(width - 960) / 2, 0, 960, height);
         image(fun2, 0, 0);
         if (millis() - gifStartTime >= gifDuration - 1200) {
           image(kari, 0, 0);
