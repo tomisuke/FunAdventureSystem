@@ -30,6 +30,7 @@ ControlP5 showAnswerButton3;
 
 ControlP5 modeAdventureButton;
 ControlP5 completeAdventureButton;
+ControlP5 finishAdventureButton;
 
 
 ControlP5 f1ButtonHome;

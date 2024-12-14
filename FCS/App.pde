@@ -11,6 +11,7 @@ void hideAllButton() {
   showAnswerButton3.hide();
   modeAdventureButton.hide();
   completeAdventureButton.hide();
+  finishAdventureButton.hide();
   f1ButtonHome.hide();
   f2ButtonHome.hide();
   f3ButtonHome.hide();
