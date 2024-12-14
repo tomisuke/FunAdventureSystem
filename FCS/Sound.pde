@@ -46,3 +46,7 @@ void countDownSE(){
   se = minim.loadFile("sound/タイプライター.mp3");
   se.play();
 }
+void countZeroSE(){
+  se = minim.loadFile("sound/決定.mp3");
+  se.play();
+}

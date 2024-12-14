@@ -5,10 +5,14 @@ void sceneCountDown() {
   if (millis()-startCount >= 1000) {
     countDown--;
     startCount = millis();
-    countDownSE();
+    if (countDown == 0) {
+      countZeroSE();
+    } else {
+      countDownSE();
+    }
   }
   textSize(100);
-  text(countDown,width/2,height/2);
+  text(countDown, width/2, height/2);
   if (countDown == 0) {
     countDown = 4;
     scene = 3;
