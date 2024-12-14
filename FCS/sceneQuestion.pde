@@ -58,7 +58,6 @@ int gifStartTime = 0;
 int gifDuration = 3000;
 
 void drawQuestion() {
-  println("drawQuestion");
   background(255);
   if (soundFlag == true) {
     pictureChangeSE();
