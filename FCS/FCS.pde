@@ -140,7 +140,6 @@ void setup() {
   resultSetup();
   showAnswerSetup();
   sceneAdventureSetup();
-  choiceFloorHome();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
