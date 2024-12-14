@@ -215,10 +215,9 @@ void draw() {
         if (millis() - gifStartTime >= gifDuration) {//gifの再生時間が終わったら
           fun2.stop();
           scene = 4;
-          println("シーンは4");
           soundFlag = true;
           showLoading = false;
-          //fileLoad = false;
+          fileLoad = false;
           fun2Finished = true;
           fun2Started = true;
           gifStarted = false;
