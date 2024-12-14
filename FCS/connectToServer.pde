@@ -9,4 +9,5 @@ void reconnectToServer() {//サーバーと再接続する関数
         println("Disconnected from server.");
     }
     connectToServer();//サーバーと再接続する
+
 }

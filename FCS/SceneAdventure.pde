@@ -51,6 +51,7 @@ void sceneQR (){//アップロードページに飛ぶqrコードを表示
 }
 void clientEvent(Client client) {//サーバーから何か受け取ったときに発動する関数　
     String receiveS = client.readString();//serverから受け取る文字列
+
     //receiveSには、正解　もしくは　不正解　,nothingのどれかの文字列が入っている
 
     if(receiveS != null){
@@ -59,3 +60,5 @@ void clientEvent(Client client) {//サーバーから何か受け取ったとき
 
     reconnectToServer();
 }
+
+

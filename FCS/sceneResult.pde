@@ -24,10 +24,12 @@ void sceneResult() {
     text("問題"+i, width/2-200, 100+80*i);
     if (judge[i-1]) {
       fill(255,0,0);
+      //image(okImage,width/2+20,-100+80*i);
       text("正解!", width/2+200, 100+80*i);
     } else {
       fill(0,0,255);
-      text("不正解!", width/2+200, 100+80*i);
+      //image(noImage,width/2+20,-100+80*i);
+      text("不正解!", 0,0,width, height);
     }
   }
 }

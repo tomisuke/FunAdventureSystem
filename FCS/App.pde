@@ -31,8 +31,8 @@ void back() {
   scene = 0;
   clearAllSelections();
   hideAllButton();
-  homeButton.show();
   textAlign(LEFT, TOP);
+  homeButton.show();
   backSE();
 }
 void easy() {

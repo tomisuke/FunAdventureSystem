@@ -15,7 +15,6 @@ import gifAnimation.*;
 
 import processing.serial.*;
 
-import processing.net.*;//serverと通信するためライブラリ
 
 import controlP5.*;
 ControlP5 homeButton;
@@ -27,19 +26,7 @@ ControlP5 resultButton;
 ControlP5 showAnswerButton1;
 ControlP5 showAnswerButton2;
 ControlP5 showAnswerButton3;
-
-ControlP5 modeAdventureButton;
-ControlP5 completeAdventureButton;
-
-
-ControlP5 f1ButtonHome;
-ControlP5 f2ButtonHome;
-ControlP5 f3ButtonHome;
-ControlP5 f4ButtonHome;
-ControlP5 f5ButtonHome;
-
 Gif gif;
-Gif titleGif;
 
 PFont font;
 PFont font40;
@@ -64,14 +51,6 @@ PImage ruleImage;
 PImage selectImage;
 PImage logoImage1;
 PImage logoImage2;
-
-PImage qr;//アップロードページに飛ぶようのqrコード
-
-PImage okImage;
-PImage noImage;
-PImage OkokImage;
-PImage NonoImage;
-
 int titleFontSize = 70;
 int subTitle = 40;
 int scene;
@@ -107,16 +86,8 @@ int answerCount=0;
 //ManageQuestion manageQuestion;
 //サウンド系
 boolean soundFlag = true;
-//サーバーと通信するための変数
-String serverAddress = "127.0.0.1";//サーバーのアドレス　今回はlocalhost
-int serverPort = 5000;//サーバーのポート番号
-Client client;//クライアントオブジェクト　これでプロセシングがクライアントになる
+//リザルト系
 int resultPictureNum = 0;
-
-int lastwritetime = 0;//サーバーに送信した時間を記録
-
-String answerComment = "";
-
 void setup() {
   scene = 0;
   font = createFont("Meiryo", 20);
@@ -128,34 +99,23 @@ void setup() {
   PFont font = createFont("Meiryo", 50);
   textFont(font);
   ruleImage = loadImage("rule.png");
-  OkokImage = loadImage("Okok.png");
-  NonoImage = loadImage("Nono.png");
-  okImage = loadImage("ok.png");
-  noImage = loadImage("niwaka.png");
   //各シーンのセットアップ
-  choiceFloorHome();
   titleSetup();
   selectLevelSetup();
   ruleSetup();
   mapChoiceSetup();
   resultSetup();
   showAnswerSetup();
-  sceneAdventureSetup();
   hideAllButton();
   homeButton.show();
   gif = new Gif (this, "loading.gif");
-  titleGif= new Gif (this, "titleA.gif");
   gif.play();
-  titleGif.play();
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
   for (int i = 0; i < 5; i++) {
     answerId2[i] = new ArrayList<Integer>();
   }
-  //サーバーと接続する　初回接続
-  connectToServer();
-  qr = loadImage("toUploadpage_qr.png");
 }
 
 void draw() {
@@ -185,12 +145,13 @@ void draw() {
         loadingStartTime=millis();
       } else {
         drawLoadingAnimation();
+        //写真の表示で使った変数のリセット
         isLoading = true;
         soundFlag = true;
+        resultPictureNum = 0;
         if (millis() - loadingStartTime > 500) {
           showLoading = false;
           fileLoad = false;
-          resultPictureNum = 0;
           scene = 4;
           bgm.close();
           choiceFloorBGM();
@@ -208,20 +169,6 @@ void draw() {
     break;
   case 6:
     sceneResult();
-    break;
-  case 7:
-    if(!fileLoad){
-      fileLoad=true;
-      loadImage();
-    }
-    sceneAdventure();
-    break;
-  case 8:
-    sceneAdventure_picture();
-    break;
-  case 9:
-    sceneQR();
-    fileLoad = false;
     break;
   }
 }
