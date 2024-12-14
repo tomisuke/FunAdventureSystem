@@ -34,40 +34,27 @@ void showAnswerSetup() {
     .setColorActive(defaultActiveColor);
 }
 void sceneShowAnswer() {
-  background(255);
-  //画像を表示
-  image(questionImage[resultPictureNum], (width-(960*0.8))/2, 0, 960*0.8, height*0.8);
+  image(mapBGImage, 0, 0, width, height);  //画像を表示
+  fill(255);
+  rect( (width-(960*0.8))/2-10, 20, 960*0.8+20, height*0.8+20);
+  image(questionImage[resultPictureNum], (width-(960*0.8))/2, 30, 960*0.8, height*0.8);
   textSize(100);
   //回答の真偽を表示する
   if (judge[resultPictureNum]) {
 
     //fill(255, 0, 0);
-    image(OkokImage, 0, 0,width,height);
+    image(OkokImage, 0, 0, width, height);
     //text("正解!", 100, height-200);
   } else {
     //fill(0, 0, 255);
-    image(NonoImage, 0, 0,width,height);
+    image(NonoImage, 0, 0, width, height);
     //text("不正解!", 100, height-200);
-
   }
   //解説を表示する
   textSize(40);
   answerComment = takeAnswerComment(fileName[resultPictureNum]);
   fill(0);
-  text(answerComment, 180, 600);
-  //次へボタンや、戻るボタンを表示する
-  if (resultPictureNum == 0) {
-    showAnswerButton2.hide();
-  } else if (resultPictureNum == 1) {
-    showAnswerButton2.show();
-  } else if (resultPictureNum == MAX_SIZE-1) {
-    hideAllButton();
-    showAnswerButton2.show();
-    showAnswerButton3.show();
-  } else if (resultPictureNum == MAX_SIZE-2) {
-    showAnswerButton1.show();
-    showAnswerButton3.hide();
-  }
+  text(answerComment, 200, 650);//解説を表示
 }
 String takeAnswerComment(String fileName) {
   int id =  toFileNameInt(fileName);

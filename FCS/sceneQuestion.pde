@@ -16,11 +16,10 @@ boolean showLoading = false;
 String fileName[];
 
 void drawLoadingAnimation() {
-  background(255);
+  image(mapBGImage, 0, 0, width, height);  //画像を表示
   fill(0);
   //text("Now Loading", width / 2, height / 2 - 50);
-  image(gif, 512, 232);
-
+  image(fun2, 0, 0);
   pushMatrix();
   popMatrix();
 }
@@ -39,8 +38,12 @@ void loadImage() {
 
   ArrayList<String> selectedFiles = new ArrayList<String>();
   for (String file : imageFiles) {
-    selectedFiles.add(file);
+    String fileNamePrefix = fiveSelect(file);
+    if (fileNamePrefix != null) {
+      selectedFiles.add(fileNamePrefix + ".jpg");
+    }
   }
+
   questionImage = new PImage[MAX_SIZE];
   for (int i = 0; i < MAX_SIZE; i++) {
     int randomIndex = int(random(selectedFiles.size()));//selectedFiles(arrayList)の要素数までのランダムな数字
@@ -55,6 +58,11 @@ void loadImage() {
   changeTime=millis();
 }
 
+String fiveSelect(String fileName) {
+  String match = fileName.replaceAll("^\\D*(\\d{5}).*", "$1");
+  return match.length() == 5 ? match : null;
+}
+
 void drawQuestion() {
   background(255);
   if (soundFlag == true) {
@@ -63,6 +71,7 @@ void drawQuestion() {
     soundFlag = false;
   }
   if (millis() - changeTime > interval) {
+
     nowImage++;
     changeTime = millis();
 
@@ -77,5 +86,16 @@ void drawQuestion() {
 
   if (nowImage < MAX_SIZE && questionImage[nowImage] != null) {
     image(questionImage[nowImage], (width-960)/2, 0, 960, height);
+    if (nowImage==MAX_SIZE) {
+      sceneChange=true;
+    }
+  }
+
+  if (sceneChange==true) {
+    frameRate(10);
+    image(questionImage[MAX_SIZE], (width-960)/2, 0, 960, height);
+    image(fun1, 0, 0);
+    sceneChange=false;
+    frameRate(60);
   }
 }

@@ -40,6 +40,8 @@ ControlP5 f5ButtonHome;
 
 Gif gif;
 Gif titleGif;
+Gif fun1;
+Gif fun2;
 
 PFont font;
 PFont font40;
@@ -71,6 +73,7 @@ PImage okImage;
 PImage noImage;
 PImage OkokImage;
 PImage NonoImage;
+PImage mapBGImage;
 
 int titleFontSize = 70;
 int subTitle = 40;
@@ -80,9 +83,9 @@ int level = 1;
 //mapのグローバル変数，以下かとう
 ArrayList<Integer> answerId = new ArrayList<Integer>();//【重要】正誤判定に用いる。ユーザーが選択した場所を格納
 int count=0;
-int floorSize=60;//マス目の長さ
-int centerX=400;//マップの左上を定める（Ｘ軸）
-int centerY=50;//マップの左上を定める（Ｙ軸）
+int floorSize=55;//マス目の長さ
+int centerX=420;//マップの左上を定める（Ｘ軸）
+int centerY=100;//マップの左上を定める（Ｙ軸）
 int lineWidth=1;//マップの線の太さ
 int lineWidthOutside=3;//マップの線の外枠の太さ
 int col=130;//マップのデフォルトの色
@@ -96,6 +99,7 @@ boolean stableFill=false;
 int kariX, kariY;//クリック時に色を表示する位置
 int[][][] clickCount;
 boolean resetId=false;
+boolean sceneChange=false;
 ArrayList<Integer> answerId2[]=new ArrayList[5];
 boolean[] judge;
 int l1=10;//方眼紙のマス目の点線の長さ
@@ -133,6 +137,7 @@ void setup() {
   okImage = loadImage("ok.png");
   noImage = loadImage("niwaka.png");
   bg_oldpaper = loadImage("paper_adventure.png");
+  mapBGImage=loadImage("mapBG.png");
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
@@ -147,6 +152,10 @@ void setup() {
   titleGif= new Gif (this, "titleA.gif");
   gif.play();
   titleGif.play();
+  fun1 = new Gif (this, "fun1.gif");
+  fun2 = new Gif (this, "fun2.gif");
+  fun1.play();
+  fun2.play();
   //setupQuestion();
   //map系
   clickCount=new int[5][16][20];
@@ -235,5 +244,8 @@ void draw() {
   case 11:
     incorrectscene();
     break;
+  case 12:
+    sceneCountDown();
+    break;    
   }
 }

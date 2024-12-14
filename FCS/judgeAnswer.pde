@@ -1,7 +1,3 @@
-/*かとうです。これはフィーリング判定タブ（仮）
- 未完成。今はeasyIDを正解としている
- judgeAnswerはAppタブのjudge関数に存在。マップ(case==4)のjudgeボタンを押すと正解の文字がコンソールに
- */
 void judgeAnswer() {//判定ボタンで正誤判定開始
   for (int id : answerId) {
     for (int i=0; i<MAX_SIZE; i++) {
@@ -14,7 +10,6 @@ void judgeAnswer() {//判定ボタンで正誤判定開始
     }
   }
 }
-
 void judgeCancel() {//deleteに存在，判定を取り消す関数
   for (int i=0; i<MAX_SIZE; i++) {
     judge[i]=false;

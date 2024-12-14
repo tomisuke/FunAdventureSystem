@@ -81,7 +81,7 @@ void sceneSelectLevel() {
   fill(80);
   text("難易度を選択してください", width/2, height/8);
   //モードのテキスト
-  text("地図モード",width/4,height/4);
-  text("探検モード",width*3/4,height/4);
+  text("地図モード", width/4, height/4);
+  text("探検モード", width*3/4, height/4);
   //難易度を選択するボタン
 }

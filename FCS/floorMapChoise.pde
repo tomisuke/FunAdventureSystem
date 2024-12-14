@@ -20,7 +20,7 @@ void floorMapTap(int x, int y) {//sceneChoiceAnswerタブ・関数に存在
         idY = j;
       }
     }
-    fill(255, 0, 0, colorTime);
+    fill(255, 255, 255, colorTime);
     rectFunction(x, y, 1, 1);
   }
   if (colorTime <= 0) {
