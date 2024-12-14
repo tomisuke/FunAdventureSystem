@@ -40,6 +40,8 @@ void back() {
   textAlign(LEFT, TOP);
   homeButton.show();
   backSE();
+  bgm.close();
+  titleBGM();
 }
 void easy() {
   levelOption = "easy";
