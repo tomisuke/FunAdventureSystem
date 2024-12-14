@@ -66,7 +66,7 @@ PImage ruleImage;
 PImage selectImage;
 PImage logoImage1;
 PImage logoImage2;
-
+PImage bg_oldpaper;//宝の地図の紙っぽい画像 bgはbackgroundの略
 PImage qr;//アップロードページに飛ぶようのqrコード
 
 PImage okImage;
@@ -136,8 +136,8 @@ void setup() {
   NonoImage = loadImage("Nono.png");
   okImage = loadImage("ok.png");
   noImage = loadImage("niwaka.png");
+  bg_oldpaper = loadImage("paper_adventure.png");
   mapBGImage=loadImage("mapBG.png");
-
   //各シーンのセットアップ
   titleSetup();
   selectLevelSetup();
@@ -239,6 +239,12 @@ void draw() {
     fileLoad = false;
     break;
   case 10:
+    correctscene();
+    break;
+  case 11:
+    incorrectscene();
+    break;
+  case 12:
     sceneCountDown();
     break;    
   }

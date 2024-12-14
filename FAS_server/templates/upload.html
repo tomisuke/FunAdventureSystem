@@ -1,17 +1,42 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アップロードページ</title>
-</head>
+{% block content %}
 
 <body>
-    <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
-        <input type="file" name="example">
-        <button type="submit">submit</button>
-    </form>
+    <div class=body>
+        <div class=backimage>
+            <div class=box1>
+                <div class=logo></div>
+                <div class=right>
+                    <div class=title></div>
+                </div>
+
+                <div class=fontini>
+                    探検モード
+                </div>
+
+            </div>
+            <div class=box2></div>
+            <div class=box3>
+                <div class=fontnext>
+                    <br>撮影した写真を</br>
+                    アップロードしてください
+                </div>
+                <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="example">
+                    <button type="submit">submit</button>
+                </form>
+            </div>
+            <div class=low>
+                <div class=fontlast>
+                    制作:2024コミュニケーションⅡ 1-k group2
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 </html>
+{% endblock content %}
