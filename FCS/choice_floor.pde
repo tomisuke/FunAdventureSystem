@@ -1,5 +1,10 @@
 void choiceFloorHome() {
   fill(255);
+  f1ButtonHome = new ControlP5(this);
+  f2ButtonHome = new ControlP5(this);
+  f3ButtonHome = new ControlP5(this);
+  f4ButtonHome = new ControlP5(this);
+  f5ButtonHome = new ControlP5(this);
   f1ButtonHome.setFont(font40);
   f2ButtonHome.setFont(font40);
   f3ButtonHome.setFont(font40);

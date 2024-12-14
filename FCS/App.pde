@@ -11,6 +11,11 @@ void hideAllButton() {
   showAnswerButton3.hide();
   modeAdventureButton.hide();
   completeAdventureButton.hide();
+  f1ButtonHome.hide();
+  f2ButtonHome.hide();
+  f3ButtonHome.hide();
+  f4ButtonHome.hide();
+  f5ButtonHome.hide();
   score=0;
 }
 void rule() {
